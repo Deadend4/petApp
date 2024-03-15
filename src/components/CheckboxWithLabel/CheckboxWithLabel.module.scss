@@ -1,0 +1,22 @@
+.checkboxBlock {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkbox {
+  visibility: hidden;
+}
+.checkbox:checked + label::before,
+.checkbox:not(:checked) + label::before {
+  position: absolute;
+  content: "";
+  left: 70px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--grey300);
+  background-color: #ffffff;
+  border-radius: 4px;
+}

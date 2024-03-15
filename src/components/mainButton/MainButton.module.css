@@ -1,0 +1,26 @@
+.button {
+  position: relative;
+  color: var(--color-text-main-button);
+  background-color: var(--color-main-button);
+  width: 100%;
+  max-width: 520px;
+  height: 100%;
+  max-height: 54px;
+  border: none;
+  border-radius: 17px;
+  font-family: var(--main-font-family);
+  font-size: var(--font-size-button);
+  font-weight: 400;
+}
+
+.button:hover {
+  border: 1px solid var(--color-accent);
+}
+
+.button:focus {
+  outline: 1px solid var(--color-accent);
+}
+
+.button:active {
+  border: 2px solid var(--color-accent);
+}
