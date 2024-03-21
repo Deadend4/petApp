@@ -44,7 +44,7 @@ export default function CreateAccount(): JSX.Element {
             register={register}
           />
           <CheckboxWithLabel
-            id={Date.now().toString()}
+            id="TermsAndConditions"
             label="Я принимаю Правила и Условия"
           />
         </div>
