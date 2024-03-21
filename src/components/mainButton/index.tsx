@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./MainButton.module.css";
+import styles from "./MainButton.module.scss";
 
 interface MainButtonProps {
   label: string;
 }
 export default function MainButton({ label }: MainButtonProps): JSX.Element {
   return (
-    <button type="button" className={styles.button}>
+    <button type="submit" className={styles.button}>
       {label}
     </button>
   );
