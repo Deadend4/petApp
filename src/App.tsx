@@ -7,9 +7,11 @@ import CreateAccount from "./components/CreateAccount";
 const App = () => {
   return (
     <div className={styles.block}>
+      <div className={styles.innerBlock}>
+        <img src={logo} alt="paw buddy logo" className={styles.logo} />
+        <img src={splash} alt="splash" className={styles.splash} />
+      </div>
       <CreateAccount />
-      <img src={logo} alt="paw buddy logo" className={styles.logo} />
-      <img src={splash} alt="splash" className={styles.splash} />
     </div>
   );
 };
