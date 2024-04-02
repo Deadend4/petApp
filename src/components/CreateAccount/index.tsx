@@ -29,18 +29,38 @@ export default function CreateAccount(): JSX.Element {
           <Input
             type="email"
             placeholder="Email"
-            value="email"
-            register={register}
+            required
+            {...register("email")}
           />
           <Input
             type="password"
             placeholder="Пароль"
-            value="password"
-            register={register}
+            required
+            {...register("password")}
           />
           <CheckboxWithLabel
-            id="TermsAndConditions"
-            label="Я принимаю Правила и Условия"
+            label={
+              <p>
+                Я принимаю{" "}
+                <a
+                  className={styles.link}
+                  href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Правила
+                </a>{" "}
+                и{" "}
+                <a
+                  className={styles.link}
+                  href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Условия
+                </a>
+              </p>
+            }
           />
         </div>
 

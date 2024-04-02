@@ -11,10 +11,17 @@
   --color-accent: #ffc542;
   --font-size-button: 1rem;
 
+  --focus-outline: 1px solid var(--color-accent);
+
   --main-font-family: "Noto Sans", sans-serif;
 }
 
+:focus {
+  outline: var(--focus-outline);
+}
 body {
+  display: flex;
+  justify-content: center;
   background-color: #fafafa;
   background: linear-gradient(
     90deg,
@@ -32,6 +39,18 @@ p {
 
 .block {
   display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  max-height: 100vh;
+  justify-content: center;
+  padding: 3rem 5rem 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: 1920px;
+}
+
+.innerBlock {
+  display: flex;
   flex-flow: column nowrap;
   align-items: center;
   max-height: 100vh;
@@ -40,6 +59,7 @@ p {
   box-sizing: border-box;
   overflow: hidden;
 }
+
 .logo {
   position: relative;
   max-width: 120px;
@@ -49,6 +69,7 @@ p {
   animation: logoOnLoad ease-out 1s;
   animation-iteration-count: 1;
 }
+
 .splash {
   position: relative;
   width: 100%;
@@ -92,5 +113,48 @@ p {
 
   100% {
     left: -30%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .block {
+    padding: 1rem 0 0;
+  }
+  .logo {
+    display: none;
+  }
+
+  .innerBlock {
+    position: absolute;
+    max-height: 100vh;
+    justify-content: center;
+    padding: 2rem 5rem 5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .splash {
+    position: relative;
+
+    bottom: auto;
+    left: 0;
+
+    animation: splashOnLoad ease-out 1s;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes logoOnLoad {
+  }
+
+  @keyframes splashOnLoad {
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .block {
+    max-width: 1000px;
+  }
+  .innerBlock {
+    padding: 0;
+    top: -1rem;
   }
 }
