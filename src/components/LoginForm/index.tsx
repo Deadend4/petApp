@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "./CreateAccount.module.scss";
+import styles from "./LoginForm.module.scss";
 import MainButton from "../mainButton";
 import Input from "../Input";
-import CheckboxWithLabel from "../CheckboxWithLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -20,10 +19,10 @@ export default function CreateAccount(): JSX.Element {
   return (
     <form className={styles.block} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.innerBlock}>
-        <h1>Создать аккаунт</h1>
+        <h1>Войти в аккаунт</h1>
         <span>
-          Добро пожаловать! Пожалуйста, введите свою информацию ниже и
-          приступайте к работе.
+          С возвращением! Пожалуйста, введите свои данные, чтобы зайти в
+          аккаунт.
         </span>
         <div className={styles.form}>
           <Input
@@ -38,17 +37,16 @@ export default function CreateAccount(): JSX.Element {
             value="password"
             register={register}
           />
-          <CheckboxWithLabel
-            id="TermsAndConditions"
-            label="Я принимаю Правила и Условия"
-          />
+          <Link to="/forgot-password/" className={styles.link}>
+            Забыли пароль?
+          </Link>
         </div>
 
-        <MainButton label="Создать аккаунт" />
+        <MainButton label="Войти" />
         <span>
-          У вас уже есть аккаунт?{" "}
-          <Link to="/auth/" className={styles.link}>
-            Войдите в систему
+          Нет аккаунта?{" "}
+          <Link to="/" className={styles.link}>
+            Создайте аккаунт
           </Link>
         </span>
       </div>

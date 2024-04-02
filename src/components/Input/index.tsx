@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Input.module.scss";
 import { UseFormRegister } from "react-hook-form";
-import openedEye from "../../../image/opened_eye.svg";
-import closedEye from "../../../image/closed_eye.svg";
+import openedEye from "../../../assets/opened_eye.svg";
+import closedEye from "../../../assets/closed_eye.svg";
 
 interface InputEmailProps {
   type: string;

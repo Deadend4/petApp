@@ -1,0 +1,75 @@
+%display-flex-col-center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 620px;
+  max-height: 790px;
+  background-color: var(--color-white-bg);
+  color: var(--color-text);
+  font-family: var(--main-font-family);
+  font-size: var(--font-size-button);
+  font-weight: 400;
+  box-shadow: 0 4px 20px #3232470a;
+  border-radius: 17px;
+  padding: 70px;
+  box-sizing: border-box;
+  right: 5rem;
+
+  animation: animationOnLoad ease-out 1s;
+  animation-iteration-count: 1;
+}
+
+.innerBlock {
+  @extend %display-flex-col-center;
+
+  justify-content: flex-start;
+  padding: 24px 0 24px 0;
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  max-height: 526px;
+  gap: 40px;
+
+  h1 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 34px;
+    font-weight: 700;
+  }
+  span {
+    margin: 0;
+    text-align: center;
+  }
+}
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+@keyframes animationOnLoad {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 5rem;
+  }
+}

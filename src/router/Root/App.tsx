@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./App.module.scss";
-import logo from "../image/LogoPawBuddy.png";
-import splash from "../image/splashDog.png";
-import CreateAccount from "./components/CreateAccount";
+import logo from "../../../assets/LogoPawBuddy.png";
+import splash from "../../../assets/splashDog.png";
+import CreateAccount from "../../components/CreateAccount";
+import SetRouterTitle from "../../utils/setRouterTitle";
 
 const App = () => {
+  SetRouterTitle("Регистрация");
   return (
     <div className={styles.block}>
       <CreateAccount />

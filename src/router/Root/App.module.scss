@@ -25,6 +25,10 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+h1,
+p {
+  font-family: var(--main-font-family);
+}
 
 .block {
   display: flex;
