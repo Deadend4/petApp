@@ -10,7 +10,7 @@ interface IFormValues {
   email: string;
   password: string;
 }
-export default function CreateAccount(): JSX.Element {
+export default function LoginForm(): JSX.Element {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
@@ -25,18 +25,8 @@ export default function CreateAccount(): JSX.Element {
           аккаунт.
         </span>
         <div className={styles.form}>
-          <Input
-            type="email"
-            placeholder="Email"
-            value="email"
-            register={register}
-          />
-          <Input
-            type="password"
-            placeholder="Пароль"
-            value="password"
-            register={register}
-          />
+          <Input type="Email" placeholder="Email" register={register} />
+          <Input type="password" placeholder="Пароль" register={register} />
           <Link to="/forgot-password/" className={styles.link}>
             Забыли пароль?
           </Link>
