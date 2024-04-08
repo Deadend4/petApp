@@ -5,6 +5,7 @@ import Input from "../Input";
 import CheckboxWithLabel from "../CheckboxWithLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+import createAccountIcon from "../../../assets/createAccountIcon.svg";
 
 interface IFormValues {
   name: string;
@@ -19,6 +20,7 @@ export default function CreateAccount(): JSX.Element {
   };
   return (
     <form className={styles.block} onSubmit={handleSubmit(onSubmit)}>
+      <img src={createAccountIcon} className={styles.icon} />
       <div className={styles.innerBlock}>
         <h1>Создать аккаунт</h1>
         <span>
