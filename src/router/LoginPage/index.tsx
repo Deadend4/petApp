@@ -4,7 +4,6 @@ import logo from "../../../assets/LogoPawBuddy.png";
 import splash from "../../../assets/splashDog.png";
 import LoginForm from "../../components/LoginForm";
 import SetRouterTitle from "../../utils/setRouterTitle";
-import CreateAccount from "../../components/CreateAccount";
 
 export default function Root() {
   SetRouterTitle("Вход в аккаунт");
