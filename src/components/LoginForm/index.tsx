@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LoginForm.module.scss";
-import MainButton from "../mainButton";
+import MainButton from "../MainButton";
 import Input from "../Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
