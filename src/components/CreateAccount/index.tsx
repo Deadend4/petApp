@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./CreateAccount.module.scss";
-import MainButton from "../mainButton";
+import MainButton from "../MainButton";
 import Input from "../Input";
 import CheckboxWithLabel from "../CheckboxWithLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
