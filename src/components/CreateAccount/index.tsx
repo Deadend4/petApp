@@ -3,9 +3,24 @@ import styles from "./CreateAccount.module.scss";
 import MainButton from "../mainButton";
 import Input from "../Input";
 import CheckboxWithLabel from "../CheckboxWithLabel";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { Link } from "react-router-dom";
+import AvatarLoader from "../AvatarLoader";
+
+interface IFormValues {
+  name: string;
+  email: string;
+  password: string;
+}
 export default function CreateAccount(): JSX.Element {
+  const { register, handleSubmit } = useForm<IFormValues>();
+
+  const onSubmit: SubmitHandler<IFormValues> = (data) => {
+    alert(JSON.stringify(data));
+  };
   return (
-    <div className={styles.block}>
+    <form className={styles.block} onSubmit={handleSubmit(onSubmit)}>
+      <AvatarLoader />
       <div className={styles.innerBlock}>
         <h1>Создать аккаунт</h1>
         <span>
@@ -13,22 +28,52 @@ export default function CreateAccount(): JSX.Element {
           приступайте к работе.
         </span>
         <div className={styles.form}>
-          <Input type="email" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
+          <Input
+            type="email"
+            placeholder="Email"
+            required
+            {...register("email")}
+          />
+          <Input
+            type="password"
+            placeholder="Пароль"
+            required
+            {...register("password")}
+          />
           <CheckboxWithLabel
-            id={Date.now().toString()}
-            label="Я принимаю Правила и Условия"
+            label={
+              <p>
+                Я принимаю{" "}
+                <a
+                  className={styles.link}
+                  href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Правила
+                </a>{" "}
+                и{" "}
+                <a
+                  className={styles.link}
+                  href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Условия
+                </a>
+              </p>
+            }
           />
         </div>
 
         <MainButton label="Создать аккаунт" />
         <span>
           У вас уже есть аккаунт?{" "}
-          <a href="" className={styles.link}>
+          <Link to="/auth/" className={styles.link}>
             Войдите в систему
-          </a>
+          </Link>
         </span>
       </div>
-    </div>
+    </form>
   );
 }

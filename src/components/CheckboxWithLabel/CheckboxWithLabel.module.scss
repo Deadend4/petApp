@@ -1,17 +1,35 @@
 .checkboxBlock {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   gap: 10px;
   justify-content: flex-start;
   align-items: center;
+  width: fit-content;
+}
+
+.checkboxBlock {
+  p {
+    margin: 0;
+  }
 }
 
 .checkbox {
-  visibility: hidden;
-}
-.checkbox:checked + label::before,
-.checkbox:not(:checked) + label::before {
+  opacity: 0;
   position: absolute;
+}
+
+.checkbox:focus-within + .fakeCheckbox {
+  outline: var(--focus-outline);
+}
+
+.fakeCheckbox {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.checkbox:checked + .fakeCheckbox::before,
+.checkbox:not(:checked) + .fakeCheckbox::before {
   content: "";
   left: 70px;
   width: 20px;
@@ -19,4 +37,32 @@
   border: 1px solid var(--grey300);
   background-color: #ffffff;
   border-radius: 4px;
+}
+.checkbox:checked + .fakeCheckbox::before {
+  border-color: var(--color-main-button);
+}
+
+.checkbox:checked + .fakeCheckbox:after,
+.checkbox:not(:checked) + .fakeCheckbox:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.checkbox:checked + .fakeCheckbox:after {
+  left: 74px;
+  margin-top: -4px;
+  width: 10px;
+  height: 5px;
+  border-radius: 1px;
+  border-left: 4px solid var(--color-main-button);
+  border-bottom: 4px solid var(--color-main-button);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }

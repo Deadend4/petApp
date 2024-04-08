@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "start": "NODE_ENV=production http-server ./dist",
-    "dev": "webpack-dev-server --mode=development --hot --stats-children --open",
+    "dev": "webpack-dev-server --mode=development --hot --open",
     "build": "webpack",
     "build:dev": "webpack --mode=development",
     "build:prod": "NODE_ENV=production webpack --mode=production --node-env=production",
@@ -14,9 +14,14 @@
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\""
   },
   "dependencies": {
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
+    "react-router-dom": "^6.22.3",
+    "sort-by": "^0.0.2",
     "typescript": "^5.4.2"
   },
   "devDependencies": {
