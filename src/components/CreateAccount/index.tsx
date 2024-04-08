@@ -5,7 +5,6 @@ import Input from "../Input";
 import CheckboxWithLabel from "../CheckboxWithLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
-import AvatarLoader from "../AvatarLoader";
 
 interface IFormValues {
   name: string;
@@ -20,7 +19,6 @@ export default function CreateAccount(): JSX.Element {
   };
   return (
     <form className={styles.block} onSubmit={handleSubmit(onSubmit)}>
-      <AvatarLoader />
       <div className={styles.innerBlock}>
         <h1>Создать аккаунт</h1>
         <span>
