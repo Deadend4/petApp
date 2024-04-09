@@ -1,0 +1,20 @@
+.dogBreedBlock {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 2px solid var(--color-main-button);
+  border-radius: 18px;
+  justify-content: center;
+  align-items: center;
+  max-width: 220px;
+  height: fit-content;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-main-button);
+}
+.dogPic {
+  position: relative;
+  width: 100%;
+}
+.dogBreedBlock:hover {
+  border-color: var(--color-accent);
+}
