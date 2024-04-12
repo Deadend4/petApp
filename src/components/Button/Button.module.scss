@@ -1,0 +1,25 @@
+%button {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  min-height: 54px;
+  border-radius: 17px;
+  font-family: var(--main-font-family);
+  font-size: var(--font-size-button);
+  font-weight: 400;
+  overflow: hidden;
+}
+
+.primaryButton {
+  @extend %button;
+  color: var(--color-text-main-button);
+  background-color: var(--color-main-button);
+  border: none;
+}
+
+.secondaryButton {
+  @extend %button;
+  color: var(--color-main-button);
+  background-color: transparent;
+  border: 2px solid var(--color-main-button);
+}
