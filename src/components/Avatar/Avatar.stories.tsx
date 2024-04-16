@@ -24,11 +24,21 @@ export const WithImage: Story = {
     src: "https://i.pinimg.com/originals/05/aa/17/05aa1701645cff64ed1edb56a0ca3a4f.jpg",
     width: 100,
     alt: "Kaneki Ken",
+    isOnline: false,
   },
 };
 export const WithoutImage: Story = {
   args: {
     width: 100,
     alt: "default image",
+    isOnline: false,
+  },
+};
+export const Online: Story = {
+  args: {
+    src: "https://i.pinimg.com/originals/05/aa/17/05aa1701645cff64ed1edb56a0ca3a4f.jpg",
+    width: 100,
+    alt: "Kaneki Ken",
+    isOnline: true,
   },
 };

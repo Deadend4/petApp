@@ -1,0 +1,59 @@
+.contactBlock {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid var(--grey150);
+  border-radius: 18px;
+  max-width: 420px;
+  width: 100%;
+  height: 54px;
+  padding: 20px 18px;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white-bg);
+}
+.contactInfoBlock {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 254px;
+  gap: 2px;
+  p {
+    margin: 0;
+  }
+}
+.name {
+  color: var(--grey800);
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.email {
+  color: var(--grey700);
+  overflow: break-word;
+}
+
+.leftPart {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.rightPart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-flow: row nowrap;
+  position: relative;
+}
+
+.overflowPets {
+  position: relative;
+}
+
+.rating {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 6px;
+}

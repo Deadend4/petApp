@@ -6,7 +6,6 @@ import CheckboxWithLabel from "../CheckboxWithLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import createAccountIcon from "../../../assets/createAccountIcon.svg";
-import SelectTimezone from "../SelectTimezone";
 
 interface IFormValues {
   name: string;
@@ -29,7 +28,6 @@ export default function CreateAccount(): JSX.Element {
           приступайте к работе.
         </span>
         <div className={styles.form}>
-          <SelectTimezone />
           <Input
             type="email"
             placeholder="Email"

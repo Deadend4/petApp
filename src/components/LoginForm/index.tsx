@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LoginForm.module.scss";
-import MainButton from "../MainButton";
+import Button from "../Button";
 import Input from "../Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -27,12 +27,12 @@ export default function LoginForm(): JSX.Element {
         <div className={styles.form}>
           <Input type="Email" placeholder="Email" register={register} />
           <Input type="password" placeholder="Пароль" register={register} />
-          <Link to="/forgot-password/" className={styles.link}>
+          <Link to="/forgot-password" className={styles.link}>
             Забыли пароль?
           </Link>
         </div>
 
-        <MainButton label="Войти" />
+        <Button label="Войти" isPrimary={true} />
         <span>
           Нет аккаунта?{" "}
           <Link to="/" className={styles.link}>

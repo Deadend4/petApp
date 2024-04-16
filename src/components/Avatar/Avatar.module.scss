@@ -1,6 +1,25 @@
+.avatarBlock {
+  position: relative;
+  display: block;
+  border-radius: 50%;
+}
+
 .avatar {
   border-radius: 50%;
   aspect-ratio: 1;
   object-fit: cover;
   background-color: var(--color-white-bg);
+}
+.avatarOutline {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background-color: var(--color-white-bg);
+  outline: 2px solid var(--color-white-bg);
+}
+
+.online {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

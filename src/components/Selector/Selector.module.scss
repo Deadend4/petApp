@@ -29,6 +29,7 @@ select:focus {
   display: grid;
   align-items: center;
   grid-template-areas: "select";
+  background-color: var(--color-text-main-button);
 }
 .selector:focus,
 .selector:focus-visible,

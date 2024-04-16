@@ -4,9 +4,12 @@
   --color-heading: #39434f;
   --color-text: #808b9a;
   --color-link: #1b85f3;
+  --grey150: #eceff2;
   --grey200: #d9dfe6;
   --grey300: #c6ced9;
   --grey600: #808b9a;
+  --grey700: #606873;
+  --grey800: #39434f;
   --color-white-bg: #ffffff;
   --color-accent: #ffc542;
   --font-size-button: 1rem;
@@ -33,7 +36,8 @@ body {
   overflow-x: hidden;
 }
 h1,
-p {
+p,
+span {
   font-family: var(--main-font-family);
 }
 button:hover {
