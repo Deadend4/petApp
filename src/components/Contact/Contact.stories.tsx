@@ -19,40 +19,19 @@ export default meta;
 
 type Story = StoryObj<typeof Contact>;
 
+export const DefaultData: Story = {
+  args: {},
+};
 export const SpecialistOnline: Story = {
   args: {
-    isOnline: false,
+    isOnline: true,
     user: {
       avatar:
         "https://media.kg-portal.ru/anime/j/jojosbizarreadventurestardustcrusaders2/images/jojosbizarreadventurestardustcrusaders2_397.jpg",
-      name: "Куджо Джотаро",
-      email: "example@exam.ple",
-      isCustomer: false,
-      rating: "5",
-      specialization: "Грумер",
-      pets: [
-        {
-          name: "Игги",
-          image:
-            "https://media.kg-portal.ru/anime/j/jojosbizarreadventurestardustcrusaders2/images/jojosbizarreadventurestardustcrusaders2_153.jpg",
-        },
-      ],
-    },
-  },
-};
-
-export const OnePetOffline: Story = {
-  args: {
-    isOnline: false,
-    user: {
-      avatar:
-        "https://media.kg-portal.ru/anime/j/jojosbizarreadventurestardustcrusaders2/images/jojosbizarreadventurestardustcrusaders2_397.jpg",
-      name: "Куджо Джотаро",
-      email: "example@exam.ple",
-      isCustomer: true,
-      rating: "5",
-      specialization: "",
-      pets: [
+      title: "Куджо Джотаро",
+      subtitle: "Грумер",
+      rating: 4.3,
+      wards: [
         {
           name: "Игги",
           image:
@@ -69,12 +48,10 @@ export const TwoPetsOffline: Story = {
     user: {
       avatar:
         "https://media.kg-portal.ru/anime/j/jojosbizarreadventurestardustcrusaders2/images/jojosbizarreadventurestardustcrusaders2_397.jpg",
-      name: "Куджо Джотаро",
-      email: "example@exam.ple",
-      isCustomer: true,
-      rating: "5",
-      specialization: "",
-      pets: [
+      title: "Куджо Джотаро",
+      subtitle: "example@exam.ple",
+      rating: 0,
+      wards: [
         {
           name: "Игги",
           image:

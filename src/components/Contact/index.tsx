@@ -3,45 +3,60 @@ import Avatar from "../Avatar";
 import styles from "./Contact.module.scss";
 import RatingStar from "../../svg/RatingStar";
 
-interface PetProps {
+interface WardsProps {
   name: string;
   image: string;
 }
 
 interface UserProps {
-  name: string;
   avatar: string;
-  email: string;
-  rating: string;
-  specialization: string;
-  isCustomer: boolean;
-  pets: Array<PetProps>;
+  title: string;
+  subtitle: string;
+  rating: number;
+  wards: Array<WardsProps>;
 }
 
 interface ContactProps {
-  email: string;
   isOnline: boolean;
   user: UserProps;
 }
 
-export default function Contact({ isOnline, user }: ContactProps): JSX.Element {
-  const renderRating = !user.isCustomer ? (
-    <span>
-      (<RatingStar width={15} />
-      {user.rating})
-    </span>
-  ) : (
-    false
-  );
-  const renderSpecialization = user.isCustomer
-    ? user.email
-    : user.specialization;
-  const currentPets = user.pets?.map((value, index) => {
+const defaultProps: ContactProps = {
+  isOnline: false,
+  user: {
+    title: "Иван Иванов",
+    subtitle: "Подзаголовок",
+    avatar: "",
+    rating: 0,
+    wards: [
+      {
+        name: "ward1",
+        image: "",
+      },
+      {
+        name: "ward2",
+        image: "",
+      },
+    ],
+  },
+};
+
+function Contact({ isOnline, user }: ContactProps): JSX.Element {
+  const renderRating =
+    user.rating > 0 ? (
+      <span>
+        (<RatingStar width={15} />
+        {user.rating})
+      </span>
+    ) : (
+      false
+    );
+  const currentWards = user.wards?.map((value, index) => {
     const currentGap = index * 20;
     return (
       <div
         key={value.name}
-        className={styles.overflowPets} //index > 0 ? styles.overflowPets : null
+        className={styles.overflowWards}
         style={{ left: -currentGap }}
       >
         <Avatar
@@ -67,13 +82,17 @@ export default function Contact({ isOnline, user }: ContactProps): JSX.Element {
         />
         <div className={styles.contactInfoBlock}>
           <div className={styles.rating}>
-            <p className={styles.name}>{user.name}</p>
+            <p className={styles.name}>{user.title}</p>
             {renderRating}
           </div>
-          <p className={styles.email}>{renderSpecialization}</p>
+          <p className={styles.email}>{user.subtitle}</p>
         </div>
       </div>
-      <div className={styles.rightPart}>{currentPets}</div>
+      <div className={styles.rightPart}>{currentWards}</div>
     </div>
   );
 }
+
+Contact.defaultProps = defaultProps;
+
+export default Contact;
