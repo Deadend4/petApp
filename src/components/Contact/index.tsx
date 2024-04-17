@@ -4,6 +4,7 @@ import styles from "./Contact.module.scss";
 import RatingStar from "../../svg/RatingStar";
 
 interface WardsProps {
+  id: string;
   name: string;
   image: string;
 }
@@ -30,10 +31,12 @@ const defaultProps: ContactProps = {
     rating: 0,
     wards: [
       {
+        id: "1",
         name: "ward1",
         image: "",
       },
       {
+        id: "2",
         name: "ward2",
         image: "",
       },
@@ -55,14 +58,14 @@ function Contact({ isOnline, user }: ContactProps): JSX.Element {
     const currentGap = index * 20;
     return (
       <div
-        key={value.name}
+        key={user.title + value.id}
         className={styles.overflowWards}
         style={{ left: -currentGap }}
       >
         <Avatar
           src={value.image}
           alt={value.name}
-          key={value.name}
+          key={"avatar" + value.id}
           isOnline={false}
           width={34}
           isOutline={true}
