@@ -2,20 +2,21 @@ import React from "react";
 import styles from "./Avatar.module.scss";
 import placeholder from "../../../assets/placeholder.png";
 import OnlineCircle from "../../svg/OnlineCircle";
+import cx from "classnames";
 
 interface AvatarProps {
   src: string;
   width: number;
   alt: string;
   isOnline: boolean;
-  isOutline: boolean;
+  withOutline: boolean;
 }
 export default function Avatar({
   src = placeholder,
   alt,
   width,
   isOnline,
-  isOutline = false,
+  withOutline = false,
 }: AvatarProps): JSX.Element {
   const circleWidth = width / 3;
   const online = isOnline ? <OnlineCircle width={circleWidth} /> : false;
@@ -24,7 +25,10 @@ export default function Avatar({
       <img
         src={src || placeholder}
         width={width}
-        className={isOutline ? styles.avatarOutline : styles.avatar}
+        className={cx({
+          [styles.avatar]: true,
+          [styles.avatarWithOutline]: withOutline,
+        })}
         alt={alt}
       />
       <div className={styles.online}>{online}</div>
