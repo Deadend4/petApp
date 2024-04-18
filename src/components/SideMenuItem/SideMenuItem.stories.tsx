@@ -1,7 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import SideMenuItem from ".";
-import DashboardIcon from "../../svg/DashboardIcon";
+import DashboardIcon from "../../svg/SideMenu/DashboardIcon";
+import ContactsIcon from "../../svg/SideMenu/ContactsIcon";
+import CalendarIcon from "../../svg/SideMenu/CalendarIcon";
 
 const meta: Meta<typeof SideMenuItem> = {
   title: "Components/SideMenuItem",
@@ -34,7 +36,7 @@ type Story = StoryObj<typeof SideMenuItem>;
 
 export const Button: Story = {
   args: {
-    title: "Dashboard",
+    title: "Панель инструментов",
     link: "",
     icon: <DashboardIcon key="link-dashboard" />,
     isSelected: false,
@@ -43,18 +45,18 @@ export const Button: Story = {
 
 export const Link: Story = {
   args: {
-    title: "Dashboard",
+    title: "Контакты",
     link: "/",
-    icon: <DashboardIcon key="link-dashboard" />,
+    icon: <ContactsIcon key="link-contacts" />,
     isSelected: false,
   },
 };
 
 export const SelectedItem: Story = {
   args: {
-    title: "Dashboard",
+    title: "Календарь",
     link: "",
-    icon: <DashboardIcon key="link-dashboard" />,
+    icon: <CalendarIcon key="link-calendar" />,
     isSelected: true,
   },
 };
