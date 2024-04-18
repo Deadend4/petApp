@@ -5,11 +5,11 @@ import OnlineCircle from "../../svg/OnlineCircle";
 import cx from "classnames";
 
 interface AvatarProps {
-  src: string;
+  src?: string;
   width: number;
-  alt: string;
-  isOnline: boolean;
-  withOutline: boolean;
+  alt?: string;
+  isOnline?: boolean;
+  withOutline?: boolean;
 }
 export default function Avatar({
   src = placeholder,
