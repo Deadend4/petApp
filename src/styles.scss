@@ -10,7 +10,9 @@
   --grey600: #808b9a;
   --grey700: #606873;
   --grey800: #39434f;
+  --color-selected-item: #d1e6ff;
   --color-white-bg: #ffffff;
+  --color-black-bg: #2a3240;
   --color-accent: #ffc542;
   --font-size-button: 1rem;
 
@@ -37,17 +39,28 @@ body {
 }
 h1,
 p,
-span {
+span,
+button,
+a {
   font-family: var(--main-font-family);
+  text-decoration: none;
 }
-button:hover {
+
+button,
+a {
+  border: 1px solid transparent;
+}
+button:hover,
+a:hover {
   border: 1px solid var(--color-accent);
 }
 
-button:focus {
+button:focus,
+a:focus {
   outline: 1px solid var(--color-accent);
 }
 
-button:active {
-  border: 2px solid var(--color-accent);
+button:active,
+Link:active {
+  outline: 2px solid var(--color-accent);
 }
