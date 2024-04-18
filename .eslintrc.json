@@ -20,12 +20,7 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": [
-    "webpack.config.js"
-  ],
-  "plugins": [
-    "@typescript-eslint",
-    "react"
-  ],
+  "ignorePatterns": ["webpack.config.js", "storybook-static"],
+  "plugins": ["@typescript-eslint", "react"],
   "rules": {}
 }

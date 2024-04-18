@@ -18,7 +18,7 @@ function UserCard({ user }: UserCardProps): JSX.Element {
         <Avatar
           isOnline={false}
           alt={user.title}
-          isOutline={false}
+          withOutline={false}
           width={60}
           key="im-user"
           src={user.src}

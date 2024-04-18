@@ -13,7 +13,8 @@
     "lint:fix": "npx eslint . --fix",
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -59,6 +60,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "5.6.0",
+    "husky": "^9.0.11",
     "node-sass": "9.0.0",
     "path": "^0.12.7",
     "prettier": "3.2.5",
