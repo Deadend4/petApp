@@ -18,7 +18,7 @@ const meta: Meta<typeof SideMenuItem> = {
         style={{
           display: "flex",
           justifyContent: "center",
-          background: "var(--color-black-bg)",
+          background: "var(--black-background-color)",
           padding: "2rem",
         }}
       >

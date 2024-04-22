@@ -12,7 +12,7 @@
 
 .primaryButton {
   @extend %button;
-  color: var(--color-text-main-button);
+  color: var(--white-text-color);
   background-color: var(--color-main-button);
   border: none;
 }
