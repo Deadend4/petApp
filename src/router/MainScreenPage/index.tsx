@@ -6,6 +6,7 @@ import PetLink from "../../components/PetLink";
 import SideMenuItem from "../../components/SideMenuItem";
 import SideMenuIcon from "../../svg/SideMenu/SideMenuIcon";
 import emptyPetProfile from "../../../assets/EmptyPetProfile.png";
+import Button from "../../components/Button";
 
 export default function MainScreenPage(): JSX.Element {
   return (
@@ -62,6 +63,7 @@ export default function MainScreenPage(): JSX.Element {
             alt="Empty pet profile image"
           />
         </div>
+        <Button isPrimary={true} label={"Добавить питомца"} />
       </div>
     </div>
   );
