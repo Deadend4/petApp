@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import NewPet from "../../svg/NewPet";
 
 interface PetLinkProps {
-  name: string;
+  title: string;
   avatarSrc: string;
   url: string;
 }
 
 export default function PetLink({
-  name,
+  title = "Добавить",
   avatarSrc,
   url,
 }: PetLinkProps): JSX.Element {
@@ -19,15 +19,15 @@ export default function PetLink({
   if (url) {
     renderPetLink = (
       <Link className={styles.petCard} to={url}>
-        <Avatar width={60} alt={"your pet " + name} src={avatarSrc} />
-        {name}
+        <Avatar width={60} alt={"your pet " + title} src={avatarSrc} />
+        {title}
       </Link>
     );
   } else {
     renderPetLink = (
       <Link className={styles.petCard} to={url}>
         <NewPet />
-        <span>{name}</span>
+        <span>{title}</span>
       </Link>
     );
   }

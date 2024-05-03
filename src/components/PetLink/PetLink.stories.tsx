@@ -28,13 +28,13 @@ type Story = StoryObj<typeof PetLink>;
 
 export const AddPet: Story = {
   args: {
-    name: "Добавить",
+    title: "Добавить",
   },
 };
 
 export const WithAvatar: Story = {
   args: {
-    name: "Рик",
+    title: "Рик",
     avatarSrc:
       "https://avatars.dzeninfra.ru/get-zen_doc/5285564/pub_6391dae5b3aa6f0d89a52c1f_639477c00adf8360a5d6ab6c/scale_2400",
     url: "/",

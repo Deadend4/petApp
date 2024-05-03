@@ -5,9 +5,9 @@ import cx from "classnames";
 
 interface SideMenuItemProps {
   title: string;
-  link: string;
+  link?: string;
   icon: JSX.Element;
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 export default function SideMenuItem({
