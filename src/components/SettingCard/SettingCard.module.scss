@@ -32,6 +32,8 @@
 }
 
 .rightSide {
+  display: flex;
   max-width: 17.5rem;
   width: 100%;
+  justify-content: flex-end;
 }

@@ -7,11 +7,13 @@ interface SettingCardProps {
   settingIcon: string;
   title: string;
   description: string;
+  element: JSX.Element;
 }
 export default function SettingCard({
   settingIcon = placeholder,
   title = "Title",
   description = "Description",
+  element = <SelectTimezone />,
 }: SettingCardProps): JSX.Element {
   return (
     <div className={styles.settingCard}>
@@ -22,9 +24,7 @@ export default function SettingCard({
           <p>{description}</p>
         </div>
       </div>
-      <div className={styles.rightSide}>
-        <SelectTimezone />
-      </div>
+      <div className={styles.rightSide}>{element}</div>
     </div>
   );
 }
