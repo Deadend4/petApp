@@ -29,7 +29,7 @@ select:focus {
   display: grid;
   align-items: center;
   grid-template-areas: "select";
-  background-color: var(--white-text-color);
+  background-color: var(--white-color);
 }
 .selector:focus,
 .selector:focus-visible,

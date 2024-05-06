@@ -11,7 +11,7 @@
   overflow: hidden;
   span {
     font-size: 0.875rem;
-    color: var(--white-text-color);
+    color: var(--white-color);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -19,5 +19,5 @@
 }
 
 .petCard:visited {
-  color: var(--white-text-color);
+  color: var(--white-color);
 }
