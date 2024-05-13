@@ -19,7 +19,9 @@ export default function PetLink({
   if (url) {
     renderPetLink = (
       <Link className={styles.petCard} to={url}>
-        <Avatar width={60} alt={"your pet " + title} src={avatarSrc} />
+        <div className={styles.petAvatar}>
+          <Avatar width={60} alt={"your pet " + title} src={avatarSrc} />
+        </div>
         {title}
       </Link>
     );

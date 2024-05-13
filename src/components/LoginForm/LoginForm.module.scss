@@ -25,6 +25,16 @@
   animation-iteration-count: 1;
 }
 
+.icon {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  top: -64px;
+  right: calc(50% - 64px);
+  border-radius: 50%;
+  background-color: var(--color-white-bg);
+}
+
 .innerBlock {
   @extend %display-flex-col-center;
 
@@ -57,10 +67,20 @@
 .link {
   text-decoration: none;
   color: var(--color-link);
+  border: none;
 }
 
 .link:hover {
+  border: none;
   color: var(--color-accent);
+}
+.buttonLink {
+  width: 100%;
+  border: none;
+}
+
+.buttonLink:hover {
+  border: none;
 }
 
 @keyframes animationOnLoad {

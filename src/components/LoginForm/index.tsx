@@ -4,6 +4,7 @@ import Button from "../Button";
 import Input from "../Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+import createAccountIcon from "../../../assets/createAccountIcon.svg";
 
 interface IFormValues {
   name: string;
@@ -18,6 +19,7 @@ export default function LoginForm(): JSX.Element {
   };
   return (
     <form className={styles.block} onSubmit={handleSubmit(onSubmit)}>
+      <img src={createAccountIcon} className={styles.icon} />
       <div className={styles.innerBlock}>
         <h1>Войти в аккаунт</h1>
         <span>
@@ -31,8 +33,10 @@ export default function LoginForm(): JSX.Element {
             Забыли пароль?
           </Link>
         </div>
+        <Link to="/home" className={styles.buttonLink}>
+          <Button label="Войти" isPrimary={true} />
+        </Link>
 
-        <Button label="Войти" isPrimary={true} />
         <span>
           Нет аккаунта?{" "}
           <Link to="/" className={styles.link}>

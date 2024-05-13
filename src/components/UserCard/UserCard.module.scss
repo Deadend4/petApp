@@ -18,7 +18,7 @@
 }
 
 .userCardContent {
-  color: var(--color-text-main-button);
+  color: var(--color-white);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -45,8 +45,14 @@
 }
 
 .exit {
+  padding: 0.3rem;
   background: transparent;
   border: none;
-  border: 1px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+.exit:hover {
+  background: var(--grey800);
+  border: none;
 }

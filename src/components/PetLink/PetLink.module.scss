@@ -3,21 +3,35 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  border: none;
   border-radius: 0.5rem;
   gap: 8px;
-  padding: 0.3rem;
+  padding: 0.5rem;
   max-width: 60px;
   width: 100%;
   overflow: hidden;
   span {
     font-size: 0.875rem;
-    color: var(--white-color);
+    color: var(--color-white);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 }
 
+.petCard:hover {
+  border: none;
+  background-color: var(--grey800);
+}
+
 .petCard:visited {
-  color: var(--white-color);
+  color: var(--color-white);
+}
+
+.petAvatar {
+  outline: 1px solid transparent;
+}
+
+.petAvatar:hover {
+  outline: 1px solid red;
 }

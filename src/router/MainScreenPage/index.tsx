@@ -7,63 +7,69 @@ import SideMenuItem from "../../components/SideMenuItem";
 import SideMenuIcon from "../../svg/SideMenu/SideMenuIcon";
 import emptyPetProfile from "../../../assets/EmptyPetProfile.png";
 import Button from "../../components/Button";
+import SetRouterTitle from "../../utils/setRouterTitle";
 
 export default function MainScreenPage(): JSX.Element {
+  SetRouterTitle("Ваши питомцы");
   return (
-    <div className={styles.mainScreenBlock}>
-      <div className={styles.sideMenu}>
-        <PawBuddyLogo width={172} height={100} />
-        <hr />
-        <div className={styles.yourPetsBlock}>
-          <p>Ваши питомцы</p>
-          <div className={styles.yourPets}>
-            <PetLink />
+    <div className={styles.background}>
+      <div className={styles.mainScreenBlock}>
+        <div className={styles.sideMenu}>
+          <div className={styles.logo}>
+            <PawBuddyLogo width={172} height={100} />
           </div>
-        </div>
-        <hr />
-        <div className={styles.buttonsBlock}>
-          <SideMenuItem
-            icon={<SideMenuIcon type="dashboard" />}
-            title="Доска"
-          />
-          <SideMenuItem
-            icon={<SideMenuIcon type="contacts" />}
-            title="Контакты"
-          />
-          <SideMenuItem
-            icon={<SideMenuIcon type="calendar" />}
-            title="Календарь"
-          />
-        </div>
-        <hr />
-        <div className={styles.buttonsBlock}>
-          <SideMenuItem
-            icon={<SideMenuIcon type="account" />}
-            title="Аккаунт"
-          />
-          <SideMenuItem
-            icon={<SideMenuIcon type="settings" />}
-            title="Настройки"
-          />
-        </div>
+          <hr />
+          <div className={styles.yourPetsBlock}>
+            <p>Ваши питомцы</p>
+            <div className={styles.yourPets}>
+              <PetLink />
+            </div>
+          </div>
+          <hr />
+          <div className={styles.buttonsBlock}>
+            <SideMenuItem
+              icon={<SideMenuIcon type="dashboard" />}
+              title="Доска"
+            />
+            <SideMenuItem
+              icon={<SideMenuIcon type="contacts" />}
+              title="Контакты"
+            />
+            <SideMenuItem
+              icon={<SideMenuIcon type="calendar" />}
+              title="Календарь"
+            />
+          </div>
+          <hr />
+          <div className={styles.buttonsBlock}>
+            <SideMenuItem
+              icon={<SideMenuIcon type="account" />}
+              title="Аккаунт"
+            />
+            <SideMenuItem
+              icon={<SideMenuIcon type="settings" />}
+              title="Настройки"
+            />
+          </div>
 
-        <UserCard />
-      </div>
-      <div className={styles.rightSide}>
-        <div className={styles.titleAndBody}>
-          <h1>О нет!</h1>
-          <p>
-            Похоже, на данный момент у Вас нет настроенных профилей, Вы можете
-            добавить своего питомца
-          </p>
-          <img
-            src={emptyPetProfile}
-            width={368}
-            height={368}
-            alt="Empty pet profile image"
-          />
+          <UserCard />
         </div>
-        <Button isPrimary={true} label={"Добавить питомца"} />
+        <div className={styles.rightSide}>
+          <div className={styles.titleAndBody}>
+            <h1>О нет!</h1>
+            <p>
+              Похоже, на данный момент у Вас нет настроенных профилей, Вы можете
+              добавить своего питомца
+            </p>
+            <img
+              src={emptyPetProfile}
+              width={368}
+              height={368}
+              alt="Empty pet profile image"
+            />
+          </div>
+          <Button isPrimary={true} label={"Добавить питомца"} />
+        </div>
       </div>
     </div>
   );

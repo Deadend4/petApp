@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./UserCard.module.scss";
 import Avatar from "../Avatar";
 import ExitIcon from "../../svg/ExitIcon";
+import { Link } from "react-router-dom";
 
 interface UserCardProps {
   user: { title: string; src: string };
@@ -29,9 +30,9 @@ function UserCard({ user }: UserCardProps): JSX.Element {
         </div>
       </div>
 
-      <button className={styles.exit}>
+      <Link to="/" className={styles.exit}>
         <ExitIcon width={18} height={16} />
-      </button>
+      </Link>
     </div>
   );
 }

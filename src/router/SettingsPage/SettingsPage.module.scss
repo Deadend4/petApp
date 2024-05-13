@@ -1,0 +1,47 @@
+.settings {
+  max-width: 900px;
+  width: 100%;
+}
+
+.description {
+  margin: 0;
+  margin-bottom: 1.875rem;
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--grey800);
+    margin: 0;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grey600);
+    margin: 0;
+  }
+}
+.categories {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+.category {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.25rem;
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--grey800);
+    width: 200px;
+    margin: 0;
+  }
+}
+
+.settingsItems {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.25rem;
+  width: 100%;
+}

@@ -3,17 +3,18 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 860px;
+  width: 860px;
   width: 100%;
   padding: 1rem;
-  background-color: var(--white-color);
-  border: 1px solid #ffffff;
+  background-color: var(--color-white);
+  border: 1px solid var(--grey150);
   border-radius: 14px;
 }
 
 .leftSide {
   display: flex;
   flex-flow: row nowrap;
+  width: 100%;
   gap: 0.625rem;
   align-items: center;
 }
