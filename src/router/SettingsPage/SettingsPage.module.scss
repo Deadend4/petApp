@@ -1,11 +1,11 @@
 .settings {
-  max-width: 900px;
-  width: 100%;
+  max-width: 1440px;
+  margin: 0 1.875rem;
+  padding: 0 1.875rem;
 }
 
 .description {
-  margin: 0;
-  margin-bottom: 1.875rem;
+  margin: 1.875rem 0;
   h1 {
     font-size: 28px;
     font-weight: 700;
@@ -23,6 +23,10 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 1.5rem;
+  hr {
+    border: 1px solid var(--grey150);
+    width: 100%;
+  }
 }
 .category {
   display: flex;

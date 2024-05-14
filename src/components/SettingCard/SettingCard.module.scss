@@ -3,8 +3,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  width: 860px;
-  width: 100%;
+  max-width: 860px;
   padding: 1rem;
   background-color: var(--color-white);
   border: 1px solid var(--grey150);

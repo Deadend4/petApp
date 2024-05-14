@@ -2,14 +2,13 @@
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100%;
   background: var(--black-background-color);
+  height: 100%;
 }
 .mainScreenBlock {
   display: flex;
   flex-flow: row nowrap;
   width: max-content;
-  height: 100%;
   background: var(--black-background-color);
   hr {
     border: 1px solid var(--grey700);
@@ -20,7 +19,7 @@
 .sideMenu {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.8rem;
   padding: 1.875rem;
 }
@@ -47,10 +46,6 @@
 }
 
 .rightSide {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 40px;
-  align-items: center;
   max-width: 1440px;
   width: 100%;
   background-color: var(--color-white-bg);
@@ -63,17 +58,7 @@
   color: var(--grey100);
 }
 
-.titleAndBody {
-  text-align: center;
-  width: 100%;
-  max-width: 396px;
-  margin: 9.0625rem 20.75rem 0;
-  h1 {
-    font-size: 2.125rem;
-    color: var(--grey800);
-  }
-  p {
-    color: var(--grey600);
-    font-size: 1.125rem;
-  }
+.logoLink {
+  padding: 0;
+  margin: 0;
 }

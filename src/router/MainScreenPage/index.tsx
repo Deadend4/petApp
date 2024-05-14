@@ -5,9 +5,8 @@ import PawBuddyLogo from "../../svg/PawBuddyLogo";
 import PetLink from "../../components/PetLink";
 import SideMenuItem from "../../components/SideMenuItem";
 import SideMenuIcon from "../../svg/SideMenu/SideMenuIcon";
-import emptyPetProfile from "../../../assets/EmptyPetProfile.png";
-import Button from "../../components/Button";
 import SetRouterTitle from "../../utils/setRouterTitle";
+import { Link, Outlet } from "react-router-dom";
 
 export default function MainScreenPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");
@@ -15,9 +14,9 @@ export default function MainScreenPage(): JSX.Element {
     <div className={styles.background}>
       <div className={styles.mainScreenBlock}>
         <div className={styles.sideMenu}>
-          <div className={styles.logo}>
+          <Link to="/home" className={styles.logo}>
             <PawBuddyLogo width={172} height={100} />
-          </div>
+          </Link>
           <hr />
           <div className={styles.yourPetsBlock}>
             <p>Ваши питомцы</p>
@@ -49,26 +48,14 @@ export default function MainScreenPage(): JSX.Element {
             <SideMenuItem
               icon={<SideMenuIcon type="settings" />}
               title="Настройки"
+              link="/settings"
             />
           </div>
 
           <UserCard />
         </div>
         <div className={styles.rightSide}>
-          <div className={styles.titleAndBody}>
-            <h1>О нет!</h1>
-            <p>
-              Похоже, на данный момент у Вас нет настроенных профилей, Вы можете
-              добавить своего питомца
-            </p>
-            <img
-              src={emptyPetProfile}
-              width={368}
-              height={368}
-              alt="Empty pet profile image"
-            />
-          </div>
-          <Button isPrimary={true} label={"Добавить питомца"} />
+          <Outlet />
         </div>
       </div>
     </div>

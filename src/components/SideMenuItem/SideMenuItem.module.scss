@@ -6,13 +6,18 @@
   border-radius: 0.5rem;
   cursor: pointer;
   padding: 0.75rem;
-  max-width: 13.75rem;
   width: 100%;
+  box-sizing: border-box;
   div {
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
     gap: 0.75rem;
+    width: auto;
   }
+}
+.link {
+  display: flex;
 }
 
 .selectedItem,

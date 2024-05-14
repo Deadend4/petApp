@@ -7,7 +7,7 @@
   cursor: pointer;
   width: 44px;
   height: 24px;
-  background: grey;
+  background: var(--grey200);
   display: block;
   border-radius: 16px;
   position: relative;
@@ -16,6 +16,7 @@
 
 .label:after {
   content: "";
+
   position: absolute;
   left: 5px;
   width: 22px;
@@ -34,27 +35,33 @@
   transform: translateX(-100%);
 }
 
+.checkbox:checked + .switcher {
+  color: var(--color-main-button);
+}
+
 .switcher {
   display: flex;
   flex-flow: row nowrap;
+  font-family: var(--main-font-family);
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--grey600);
+  padding: 0 0.5rem;
 }
 .switcher::before {
-  content: "off";
+  content: "Off";
   cursor: pointer;
   position: relative;
-  left: -5px;
+  left: -0.5rem;
 }
 .switcher::after {
-  content: "on";
+  content: "On";
   cursor: pointer;
   position: relative;
-  right: -5px;
+  right: -0.5rem;
 }
 
-.switcherEmpty {
-  display: flex;
-  flex-flow: row nowrap;
-}
 .switcherEmpty {
   display: flex;
   flex-flow: row nowrap;

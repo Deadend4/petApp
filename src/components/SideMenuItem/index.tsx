@@ -28,6 +28,7 @@ export default function SideMenuItem({
         className={cx({
           [styles.menuItem]: true,
           [styles.selectedItem]: isSelected,
+          [styles.link]: true,
         })}
       >
         {renderContent}
