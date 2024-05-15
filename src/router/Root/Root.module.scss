@@ -1,41 +1,4 @@
-:root {
-  --color-main-button: #1b85f3;
-  --color-text-main-button: #ffffff;
-  --color-heading: #39434f;
-  --color-text: #808b9a;
-  --color-link: #1b85f3;
-  --grey200: #d9dfe6;
-  --grey300: #c6ced9;
-  --grey600: #808b9a;
-  --color-white-bg: #ffffff;
-  --color-accent: #ffc542;
-  --font-size-button: 1rem;
-
-  --focus-outline: 1px solid var(--color-accent);
-
-  --main-font-family: "Noto Sans", sans-serif;
-}
-
-:focus {
-  outline: var(--focus-outline);
-}
-body {
-  display: flex;
-  justify-content: center;
-  background-color: #fafafa;
-  background: linear-gradient(
-    90deg,
-    rgba(217, 217, 217, 1) 0%,
-    rgba(250, 250, 250, 1) 100%
-  );
-  height: 100vh;
-  margin: 0;
-  overflow-x: hidden;
-}
-h1,
-p {
-  font-family: var(--main-font-family);
-}
+@import "/src/styles.scss";
 
 .block {
   display: flex;

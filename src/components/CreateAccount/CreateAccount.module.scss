@@ -67,10 +67,12 @@
 .link {
   text-decoration: none;
   color: var(--color-link);
+  border: none;
 }
 
 .link:hover {
   color: var(--color-accent);
+  border: none;
 }
 
 @keyframes animationOnLoad {

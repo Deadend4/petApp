@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./CreateAccount.module.scss";
-import MainButton from "../mainButton";
+import Button from "../Button";
 import Input from "../Input";
 import CheckboxWithLabel from "../CheckboxWithLabel";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -66,7 +66,7 @@ export default function CreateAccount(): JSX.Element {
           />
         </div>
 
-        <MainButton label="Создать аккаунт" />
+        <Button label="Создать аккаунт" isPrimary={true} />
         <span>
           У вас уже есть аккаунт?{" "}
           <Link to="/auth/" className={styles.link}>

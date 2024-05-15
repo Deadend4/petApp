@@ -1,0 +1,51 @@
+.settings {
+  margin: 0 1.875rem;
+  padding: 1.875rem;
+}
+
+.description {
+  margin: 1.875rem 0;
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--grey800);
+    margin: 0;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grey600);
+    margin: 0;
+  }
+}
+.categories {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+  hr {
+    border: 1px solid var(--grey150);
+    width: 100%;
+  }
+  justify-content: space-between;
+}
+.category {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--grey800);
+    width: 200px;
+    margin: 0;
+  }
+}
+
+.settingsItems {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  gap: 1.25rem;
+  width: 100%;
+}

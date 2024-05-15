@@ -1,0 +1,67 @@
+:root {
+  --color-main-button: #1b85f3;
+  --color-white: #ffffff;
+  --color-heading: #39434f;
+  --color-text: #808b9a;
+  --color-link: #1b85f3;
+  --grey150: #eceff2;
+  --grey200: #d9dfe6;
+  --grey300: #c6ced9;
+  --grey600: #808b9a;
+  --grey700: #606873;
+  --grey800: #39434f;
+  --color-selected-item: #d1e6ff;
+  --color-white-bg: #ffffff;
+  --black-background-color: #2a3240;
+  --color-accent: #ffc542;
+  --font-size-button: 1rem;
+
+  --focus-outline: 1px solid var(--color-accent);
+
+  --main-font-family: "Noto Sans", sans-serif;
+}
+
+:focus {
+  outline: var(--focus-outline);
+}
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  background: linear-gradient(
+    90deg,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(250, 250, 250, 1) 100%
+  );
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+h1,
+h2,
+p,
+span,
+button,
+a {
+  font-family: var(--main-font-family);
+  text-decoration: none;
+}
+
+button,
+a {
+  border: 1px solid transparent;
+}
+button:hover,
+a:hover {
+  border: 1px solid var(--color-accent);
+}
+
+button:focus,
+a:focus {
+  outline: 1px solid var(--color-accent);
+}
+
+button:active,
+Link:active {
+  outline: 2px solid var(--color-accent);
+}

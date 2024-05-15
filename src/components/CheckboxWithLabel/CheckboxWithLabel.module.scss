@@ -1,6 +1,7 @@
 .checkboxBlock {
   display: flex;
   flex-flow: row nowrap;
+  position: relative;
   gap: 10px;
   justify-content: flex-start;
   align-items: center;
@@ -53,7 +54,7 @@
 }
 
 .checkbox:checked + .fakeCheckbox:after {
-  left: 74px;
+  left: 4px;
   margin-top: -4px;
   width: 10px;
   height: 5px;

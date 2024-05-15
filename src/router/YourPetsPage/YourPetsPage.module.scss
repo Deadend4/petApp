@@ -1,0 +1,23 @@
+.yourPetsPage {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  padding-bottom: 2.5rem;
+}
+
+.titleAndBody {
+  text-align: center;
+  width: 100%;
+  max-width: 396px;
+  margin: 9.0625rem 20.75rem 0;
+  h1 {
+    font-size: 2.125rem;
+    color: var(--grey800);
+  }
+  p {
+    color: var(--grey600);
+    font-size: 1.125rem;
+  }
+}

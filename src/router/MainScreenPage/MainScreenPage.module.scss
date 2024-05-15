@@ -1,0 +1,61 @@
+.background {
+  width: 100vw;
+  background: var(--black-background-color);
+  height: 100%;
+}
+.mainScreenBlock {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  background: var(--black-background-color);
+  hr {
+    border: 1px solid var(--grey700);
+    width: 100%;
+  }
+}
+
+.sideMenu {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  gap: 1.8rem;
+  padding: 1.875rem;
+}
+.logo {
+  text-align: center;
+}
+
+.yourPetsBlock {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  color: var(--color-white);
+  gap: 0.75rem;
+  h1 {
+    margin: 0;
+    color: var(--grey200);
+  }
+}
+
+.yourPets {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.rightSide {
+  width: 100%;
+  background-color: var(--color-white-bg);
+  margin: 0.675rem;
+  border-radius: 1rem;
+}
+
+.buttonsBlock {
+  gap: 0.5rem;
+  color: var(--grey100);
+}
+
+.logoLink {
+  padding: 0;
+  margin: 0;
+}
