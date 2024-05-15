@@ -1,7 +1,8 @@
 .settings {
-  max-width: 1440px;
   margin: 0 1.875rem;
-  padding: 0 1.875rem;
+  padding: 1.875rem;
+  // width: 100%;
+  // box-sizing: border-box;
 }
 
 .description {
@@ -27,12 +28,13 @@
     border: 1px solid var(--grey150);
     width: 100%;
   }
+  justify-content: space-between;
 }
 .category {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  width: 100%;
+  // width: 100%;
   gap: 1.25rem;
   h2 {
     font-size: 18px;
@@ -46,6 +48,7 @@
 .settingsItems {
   display: flex;
   flex-flow: column nowrap;
+  align-items: flex-end;
   gap: 1.25rem;
   width: 100%;
 }

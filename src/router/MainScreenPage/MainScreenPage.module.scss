@@ -1,6 +1,4 @@
 .background {
-  display: flex;
-  justify-content: center;
   width: 100vw;
   background: var(--black-background-color);
   height: 100%;
@@ -8,7 +6,7 @@
 .mainScreenBlock {
   display: flex;
   flex-flow: row nowrap;
-  width: max-content;
+  width: 100%;
   background: var(--black-background-color);
   hr {
     border: 1px solid var(--grey700);
@@ -46,7 +44,7 @@
 }
 
 .rightSide {
-  max-width: 1440px;
+  // max-width: 1440px;
   width: 100%;
   background-color: var(--color-white-bg);
   margin: 0.675rem;
