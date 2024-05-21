@@ -7,6 +7,7 @@ import SideMenuItem from "../../components/SideMenuItem";
 import SideMenuIcon from "../../svg/SideMenu/SideMenuIcon";
 import SetRouterTitle from "../../utils/setRouterTitle";
 import { Link, Outlet } from "react-router-dom";
+import { getProfileName, getProfileAvatar } from "../../utils/parseProfile";
 
 export default function MainScreenPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");
@@ -45,6 +46,7 @@ export default function MainScreenPage(): JSX.Element {
             <SideMenuItem
               icon={<SideMenuIcon type="account" />}
               title="Аккаунт"
+              link="/account"
             />
             <SideMenuItem
               icon={<SideMenuIcon type="settings" />}
@@ -53,7 +55,12 @@ export default function MainScreenPage(): JSX.Element {
             />
           </div>
 
-          <UserCard />
+          <UserCard
+            user={{
+              title: getProfileName(),
+              src: getProfileAvatar(),
+            }}
+          />
         </div>
         <div className={styles.rightSide}>
           <Outlet />

@@ -1,27 +1,30 @@
-interface ProfileJson {
-  id: string;
-  name: string;
-  age: number;
-  bio: string;
-  avatar: string;
-  rating: number;
+import profile from "../../database/profileDB.json";
+
+export function getProfileName() {
+  return profile.profile.user.name;
 }
-export function getProfileName(profile: ProfileJson) {
-  return profile.name;
+export function getProfileAge() {
+  return profile.profile.user.age;
 }
-export function getProfileAge(profile: ProfileJson) {
-  return profile.age;
+export function getProfileBio() {
+  return profile.profile.user.bio;
 }
-export function getProfileBio(profile: ProfileJson) {
-  return profile.bio;
+export function getProfileAvatar() {
+  return profile.profile.user.avatar;
 }
-export function getProfileAvatar(profile: ProfileJson) {
-  return profile.avatar;
-}
-export function getProfileRating(profile: ProfileJson) {
-  return profile.rating;
+export function getProfileRating() {
+  return profile.profile.user.rating;
 }
 
-export function getProfileId(profile: ProfileJson) {
-  return profile.id;
+export function getProfileId() {
+  return profile.profile.user.id;
+}
+
+export function setProfileAvatar(avatar: string) {
+  fetch("../../database/profileDB.json")
+    .then((responseString) => responseString.json())
+    .then((data) => {
+      avatar = data.name;
+    });
+  profile.profile.user.avatar = avatar;
 }

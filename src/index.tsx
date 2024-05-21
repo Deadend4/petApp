@@ -8,6 +8,7 @@ import MainScreenPage from "./router/MainScreenPage";
 import SettingsPage from "./router/SettingsPage";
 import YourPetsPage from "./router/YourPetsPage";
 import CalendarPage from "./router/CalendarPage";
+import AccountPage from "./router/AccountPage";
 
 const containter = document.querySelector("#root");
 const root = createRoot(containter!);
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/calendar",
         element: <CalendarPage />,
+      },
+      {
+        path: "/account",
+        element: <AccountPage />,
       },
     ],
   },
