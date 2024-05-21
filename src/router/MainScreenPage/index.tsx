@@ -37,6 +37,7 @@ export default function MainScreenPage(): JSX.Element {
             <SideMenuItem
               icon={<SideMenuIcon type="calendar" />}
               title="Календарь"
+              link="/calendar"
             />
           </div>
           <hr />
