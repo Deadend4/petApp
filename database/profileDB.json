@@ -1,0 +1,13 @@
+{
+  "profile": {
+    "user": {
+      "id": "1",
+      "name": "John Doe",
+      "age": 25,
+      "bio": "Hello, I'm John Doe. I like to play video games.",
+      "avatar": "https://sneg.top/uploads/posts/2023-06/1687873080_sneg-top-p-zelenaya-avatarka-diskord-instagram-37.png",
+      "rating": "4.2",
+      "pets": [{}]
+    }
+  }
+}
