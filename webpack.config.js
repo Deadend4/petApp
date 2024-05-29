@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const webpack = require("webpack");
+const envPath = path.resolve(__dirname, ".env");
+const envVars = require("dotenv").config({ path: envPath }).parsed || {};
 module.exports = {
   entry: path.join(__dirname, "src", "index.tsx"),
   output: {
@@ -62,6 +65,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(path.resolve(__dirname, "public"), "index.html"),
       favicon: path.join(path.resolve(__dirname, "public"), "favicon.ico"),
+    }),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(envVars),
     }),
   ],
 };

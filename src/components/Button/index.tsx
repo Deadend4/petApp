@@ -12,7 +12,6 @@ export default function Button({
 }: ButtonProps): JSX.Element {
   return (
     <button
-      type="submit"
       className={isPrimary ? styles.primaryButton : styles.secondaryButton}
       {...otherProps}
     >

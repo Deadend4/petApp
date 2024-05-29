@@ -9,6 +9,9 @@ import SettingsPage from "./router/SettingsPage";
 import YourPetsPage from "./router/YourPetsPage";
 import CalendarPage from "./router/CalendarPage";
 import AccountPage from "./router/AccountPage";
+import { AuthContext } from "./context/AuthContext";
+import { useState } from "react";
+import { UserType } from "./types";
 
 const containter = document.querySelector("#root");
 const root = createRoot(containter!);
@@ -45,9 +48,20 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
+function App() {
+  const userFromStorage = sessionStorage.getItem("user");
+  const [user, setUser] = useState<UserType | null>(
+    userFromStorage ? JSON.parse(userFromStorage) : null,
+  );
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      <RouterProvider router={router} />
+    </AuthContext.Provider>
+  );
+}
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {/* <RouterProvider router={router} /> */}
+    <App />
   </React.StrictMode>,
 );
