@@ -25,7 +25,6 @@ export default function CreateAccount(): JSX.Element {
     reValidateMode: "onSubmit",
   });
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
-    //submit handler
     try {
       let user = null;
       setIsSubmitting(true);
