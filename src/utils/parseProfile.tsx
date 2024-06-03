@@ -1,4 +1,4 @@
-import profile from "../../database/profileDB.json";
+import profile from "database/profileDB.json";
 
 export function getProfileName() {
   return profile.profile.user.name;

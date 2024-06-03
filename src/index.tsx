@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { UserType } from "types/index";
+import AuthPage from "router/AuthPage";
+import LoginPage from "router/LoginPage";
+import ErrorPage from "router/ErrorPage";
+import AccountPage from "router/AccountPage";
+import SettingsPage from "router/SettingsPage";
+import YourPetsPage from "router/YourPetsPage";
+import CalendarPage from "router/CalendarPage";
 import { createRoot } from "react-dom/client";
-import Root from "./router/Root/Root";
+import { AuthContext } from "context/AuthContext";
+import MainScreenPage from "router/MainScreenPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LoginPage from "./router/LoginPage";
-import ErrorPage from "./router/ErrorPage";
-import MainScreenPage from "./router/MainScreenPage";
-import SettingsPage from "./router/SettingsPage";
-import YourPetsPage from "./router/YourPetsPage";
-import CalendarPage from "./router/CalendarPage";
-import AccountPage from "./router/AccountPage";
-import { AuthContext } from "./context/AuthContext";
-import { useState } from "react";
-import { UserType } from "./types";
 
 const containter = document.querySelector("#root");
 const root = createRoot(containter!);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <AuthPage />,
     errorElement: <ErrorPage />,
   },
   {

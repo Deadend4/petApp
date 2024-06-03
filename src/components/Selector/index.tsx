@@ -1,6 +1,6 @@
-import React, { SelectHTMLAttributes } from "react";
+import { SelectHTMLAttributes } from "react";
 import styles from "./Selector.module.scss";
-import selectArrow from "../../../assets/selectArrow.svg";
+import selectArrow from "assets/selectArrow.svg";
 
 interface SelectorProps extends SelectHTMLAttributes<HTMLSelectElement> {}
 export default function Selector({

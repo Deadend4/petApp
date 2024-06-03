@@ -1,4 +1,4 @@
-import { UserType } from "../types";
+import { UserType } from "types/index";
 import { useUser } from "./useUser";
 
 export const useAuth = () => {

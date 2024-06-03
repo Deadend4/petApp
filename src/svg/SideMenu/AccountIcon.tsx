@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function AccountIcon(): JSX.Element {
   return (
     <svg width="12" height="18" viewBox="0 0 12 18" fill="none">

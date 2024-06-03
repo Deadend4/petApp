@@ -1,13 +1,12 @@
-import React from "react";
 import styles from "./MainScreenPage.module.scss";
-import UserCard from "../../components/UserCard";
-import PawBuddyLogo from "../../svg/PawBuddyLogo";
-import PetLink from "../../components/PetLink";
-import SideMenuItem from "../../components/SideMenuItem";
-import SideMenuIcon from "../../svg/SideMenu/SideMenuIcon";
-import SetRouterTitle from "../../utils/setRouterTitle";
+import PetLink from "components/PetLink";
+import UserCard from "components/UserCard";
+import PawBuddyLogo from "svg/PawBuddyLogo";
+import SideMenuItem from "components/SideMenuItem";
+import SideMenuIcon from "svg/SideMenu/SideMenuIcon";
+import { getProfileName, getProfileAvatar } from "utils/parseProfile";
+import SetRouterTitle from "utils/setRouterTitle";
 import { Link, Outlet } from "react-router-dom";
-import { getProfileName, getProfileAvatar } from "../../utils/parseProfile";
 
 export default function MainScreenPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");

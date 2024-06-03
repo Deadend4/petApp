@@ -1,7 +1,7 @@
-import React, { InputHTMLAttributes, forwardRef, useState } from "react";
+import { InputHTMLAttributes, forwardRef, useState } from "react";
 import styles from "./Input.module.scss";
-import openedEye from "../../../assets/openedEye.svg";
-import closedEye from "../../../assets/closedEye.svg";
+import openedEye from "assets/openedEye.svg";
+import closedEye from "assets/closedEye.svg";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;

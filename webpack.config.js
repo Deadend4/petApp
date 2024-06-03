@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const webpack = require("webpack");
+const { default: _default } = require("@storybook/addon-interactions");
 const envPath = path.resolve(__dirname, ".env");
 const envVars = require("dotenv").config({ path: envPath }).parsed || {};
 module.exports = {
@@ -13,6 +14,18 @@ module.exports = {
   },
   mode: process.env.NODE_ENV || "development",
   resolve: {
+    alias: {
+      assets: path.resolve(__dirname, "./assets/"),
+      src: path.resolve(__dirname, "./src/"),
+      components: path.resolve(__dirname, "./src/components/"),
+      context: path.resolve(__dirname, "./src/context/"),
+      hooks: path.resolve(__dirname, "./src/hooks/"),
+      router: path.resolve(__dirname, "./src/router/"),
+      svg: path.resolve(__dirname, "./src/svg/"),
+      types: path.resolve(__dirname, "./src/types/"),
+      utils: path.resolve(__dirname, "./src/utils/"),
+      database: path.resolve(__dirname, "./database/"),
+    },
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     extensions: [".tsx", ".ts", ".js", ".jsx", ".css", ".scss"],
   },

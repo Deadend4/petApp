@@ -1,5 +1,4 @@
-import React from "react";
-import SetRouterTitle from "../../utils/setRouterTitle";
+import SetRouterTitle from "utils/setRouterTitle";
 import styles from "./CalendarPage.module.scss";
 import Calendar from "react-calendar";
 

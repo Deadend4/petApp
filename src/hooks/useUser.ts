@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { UserType } from "../types";
+import { AuthContext } from "context/AuthContext";
+import { UserType } from "types/index";
 import { useSessionStorage } from "./useSessionStorage";
 
 export const useUser = () => {

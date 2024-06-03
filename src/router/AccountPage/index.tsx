@@ -1,16 +1,15 @@
 import styles from "./AccountPage.module.scss";
-import SetRouterTitle from "../../utils/setRouterTitle";
-import React from "react";
-import Avatar from "../../components/Avatar";
+import Avatar from "components/Avatar";
+import Input from "components/Input";
+import Button from "components/Button";
 import {
   getProfileAvatar,
   getProfileBio,
   getProfileName,
   setProfileAvatar,
-} from "../../utils/parseProfile";
+} from "utils/parseProfile";
+import SetRouterTitle from "utils/setRouterTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
 
 type FormValues = {
   avatar: string;

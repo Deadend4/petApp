@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import styles from "./CreateAccount.module.scss";
-import Button from "../Button";
-import Input from "../Input";
-import CheckboxWithLabel from "../CheckboxWithLabel";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
-import createAccountIcon from "../../../assets/createAccountIcon.svg";
-import { useAuth } from "../../hooks/useAuth";
-import { registerWithEmailAndPassword } from "../../utils/firebase";
 import { yupResolver } from "@hookform/resolvers/yup";
-import formSchema from "./formSchema";
+import createAccountIcon from "assets/createAccountIcon.svg";
+import Button from "components/Button";
+import CheckboxWithLabel from "components/CheckboxWithLabel";
+import Input from "components/Input";
+import { useAuth } from "hooks/useAuth";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { registerWithEmailAndPassword } from "utils/firebase";
 import { InferType } from "yup";
+import styles from "./CreateAccount.module.scss";
+import formSchema from "./formSchema";
 
 type IFormValues = InferType<typeof formSchema>;
 export default function CreateAccount(): JSX.Element {
@@ -25,7 +25,6 @@ export default function CreateAccount(): JSX.Element {
     reValidateMode: "onSubmit",
   });
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
-    //comment
     try {
       let user = null;
       setIsSubmitting(true);

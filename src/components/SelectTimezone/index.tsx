@@ -1,6 +1,5 @@
-import React from "react";
 import { useTimezoneSelect, allTimezones } from "react-timezone-select";
-import Selector from "../Selector";
+import Selector from "components/Selector";
 
 const labelStyle = "original";
 const timezones = {

@@ -1,13 +1,12 @@
-import React from "react";
 import styles from "./PetLink.module.scss";
-import Avatar from "../Avatar";
+import Avatar from "components/Avatar";
 import { Link } from "react-router-dom";
-import NewPet from "../../svg/NewPet";
+import NewPet from "svg/NewPet";
 
 interface PetLinkProps {
-  title: string;
-  avatarSrc: string;
-  url: string;
+  title?: string;
+  avatarSrc?: string;
+  url?: string;
 }
 
 export default function PetLink({

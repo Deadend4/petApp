@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ContactsIcon(): JSX.Element {
   return (
     <svg width="16" height="18" viewBox="0 0 16 18" fill="none">

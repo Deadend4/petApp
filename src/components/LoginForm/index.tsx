@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./LoginForm.module.scss";
-import Button from "../Button";
-import Input from "../Input";
+import Button from "components/Button";
+import Input from "components/Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import createAccountIcon from "../../../assets/createAccountIcon.svg";
-import { useAuth } from "../../hooks/useAuth";
-import { logInWithEmailAndPassword } from "../../utils/firebase";
+import createAccountIcon from "assets/createAccountIcon.svg";
+import { useAuth } from "hooks/useAuth";
+import { logInWithEmailAndPassword } from "utils/firebase";
 
 interface IFormValues {
   email: string;

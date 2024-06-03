@@ -1,10 +1,10 @@
-import TimeZone from "../../assets/settingsIcon/TimeZone.png";
-import Language from "../../assets/settingsIcon/Language.png";
-import DarkMode from "../../assets/settingsIcon/DarkModeIcon.png";
-import EmailNotifications from "../../assets/settingsIcon/EmailNotifications.png";
-import AppNotifications from "../../assets/settingsIcon/AppNotifications.png";
-import LocationAccess from "../../assets/settingsIcon/LocationAccess.png";
-import PhotoAccess from "../../assets/settingsIcon/PhotoAccess.png";
+import EmailNotifications from "assets/settingsIcon/EmailNotifications.png";
+import AppNotifications from "assets/settingsIcon/AppNotifications.png";
+import LocationAccess from "assets/settingsIcon/LocationAccess.png";
+import PhotoAccess from "assets/settingsIcon/PhotoAccess.png";
+import DarkMode from "assets/settingsIcon/DarkModeIcon.png";
+import TimeZone from "assets/settingsIcon/TimeZone.png";
+import Language from "assets/settingsIcon/Language.png";
 
 type settingsIconType =
   | "timezone"

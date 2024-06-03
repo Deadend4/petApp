@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { UserType } from "../types";
+import { UserType } from "types/index";
 
 interface AuthContext {
   user: UserType | null;

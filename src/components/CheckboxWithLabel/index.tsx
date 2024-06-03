@@ -1,4 +1,4 @@
-import React, { ReactNode, forwardRef } from "react";
+import { ReactNode, forwardRef } from "react";
 import styles from "./CheckboxWithLabel.module.scss";
 
 interface CheckboxWithLabel
