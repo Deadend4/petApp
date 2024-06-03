@@ -1,5 +1,6 @@
 :root {
   --color-main-button: #1b85f3;
+  --color-main-button-hovered: #3292f8;
   --color-white: #ffffff;
   --color-heading: #39434f;
   --color-text: #808b9a;
@@ -7,14 +8,21 @@
   --grey150: #eceff2;
   --grey200: #d9dfe6;
   --grey300: #c6ced9;
+  --grey400: #b3becd;
+  --grey500: #a0aec0;
   --grey600: #808b9a;
   --grey700: #606873;
   --grey800: #39434f;
+  --grey1000: #101113;
   --color-selected-item: #d1e6ff;
   --color-white-bg: #ffffff;
   --black-background-color: #2a3240;
   --color-accent: #ffc542;
   --font-size-button: 1rem;
+  --font-size-label: 0.85rem;
+  --font-size-helper: 0.7rem;
+
+  --border-radius: 0.5rem;
 
   --focus-outline: 1px solid var(--color-accent);
 
@@ -25,6 +33,7 @@
   outline: var(--focus-outline);
 }
 body {
+  font-family: var(--main-font-family);
   display: flex;
   justify-content: center;
   background-color: #fafafa;
@@ -39,29 +48,21 @@ body {
 }
 h1,
 h2,
-p,
-span,
-button,
+p {
+  margin: 0;
+}
+
+input::placeholder {
+  color: var(--grey500);
+}
+
 a {
-  font-family: var(--main-font-family);
   text-decoration: none;
+  color: var(--color-link);
+  border: none;
 }
 
-button,
-a {
-  border: 1px solid transparent;
-}
-button:hover,
 a:hover {
-  border: 1px solid var(--color-accent);
-}
-
-button:focus,
-a:focus {
-  outline: 1px solid var(--color-accent);
-}
-
-button:active,
-Link:active {
-  outline: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  border: none;
 }

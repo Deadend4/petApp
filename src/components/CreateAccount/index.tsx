@@ -8,26 +8,27 @@ import { Link } from "react-router-dom";
 import createAccountIcon from "../../../assets/createAccountIcon.svg";
 import { useAuth } from "../../hooks/useAuth";
 import { registerWithEmailAndPassword } from "../../utils/firebase";
+import { yupResolver } from "@hookform/resolvers/yup";
+import formSchema from "./formSchema";
+import { InferType } from "yup";
 
-interface IFormValues {
-  name: string;
-  email: string;
-  password: string;
-}
+type IFormValues = InferType<typeof formSchema>;
 export default function CreateAccount(): JSX.Element {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { login } = useAuth();
-  const { register, handleSubmit } = useForm<IFormValues>();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormValues>({
+    resolver: yupResolver(formSchema),
+    reValidateMode: "onSubmit",
+  });
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
       let user = null;
       setIsSubmitting(true);
-      user = await registerWithEmailAndPassword(
-        data.name,
-        data.email,
-        data.password,
-      );
+      user = await registerWithEmailAndPassword(data.email, data.password);
       if (user !== null) {
         const userData = {
           userId: user.uid || "",
@@ -47,62 +48,73 @@ export default function CreateAccount(): JSX.Element {
     }
   };
   return (
-    <form className={styles.block} onSubmit={handleSubmit(onSubmit)}>
+    <div className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       <img src={createAccountIcon} className={styles.icon} />
-      <div className={styles.innerBlock}>
-        <h1>Создать аккаунт</h1>
-        <span>
-          Добро пожаловать! Пожалуйста, введите свою информацию ниже и
-          приступайте к работе.
-        </span>
-        <div className={styles.form}>
-          <Input type="text" placeholder="Имя" {...register("name")} />
-          <Input type="email" placeholder="Email" {...register("email")} />
-          <Input
-            type="password"
-            placeholder="Пароль"
-            {...register("password")}
-          />
-          <CheckboxWithLabel
-            label={
-              <p>
-                Я принимаю{" "}
-                <a
-                  className={styles.link}
-                  href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Правила
-                </a>{" "}
-                и{" "}
-                <a
-                  className={styles.link}
-                  href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Условия
-                </a>
-              </p>
-            }
-          />
-        </div>
-
+      <h1 className={styles.title}>Создать аккаунт</h1>
+      <p className={styles.description}>
+        Добро пожаловать! Пожалуйста, введите свою информацию ниже и приступайте
+        к работе.
+      </p>
+      <form className={styles.form}>
+        <Input
+          type="email"
+          error={!!errors.email}
+          helper={errors.email?.message}
+          label="Электронная почта"
+          placeholder="email@example.com"
+          {...register("email")}
+        />
+        <Input
+          type="password"
+          error={!!errors.password}
+          helper={errors.password?.message}
+          label="Пароль"
+          placeholder="Пароль"
+          {...register("password")}
+        />
+        <Input
+          type="password"
+          error={!!errors.passwordSubmit}
+          helper={errors.passwordSubmit?.message}
+          label="Повторите пароль"
+          placeholder="Пароль"
+          {...register("passwordSubmit")}
+        />
+        <CheckboxWithLabel
+          label={
+            <p>
+              Я принимаю{" "}
+              <a
+                href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Правила
+              </a>{" "}
+              и{" "}
+              <a
+                href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Условия
+              </a>
+            </p>
+          }
+          error={!!errors.acceptTNC}
+          helper={errors.acceptTNC?.message}
+          {...register("acceptTNC")}
+        />
         <Button
           type="submit"
           label={isSubmitting ? "Загрузка..." : "Создать аккаунт"}
           isPrimary={true}
           disabled={isSubmitting}
         />
-
-        <span>
-          У вас уже есть аккаунт?{" "}
-          <Link to="/auth/" className={styles.link}>
-            Войдите в систему
-          </Link>
-        </span>
-      </div>
-    </form>
+      </form>
+      <p className={styles.haveAccount}>
+        У вас уже есть аккаунт? <Link to="/auth/">Войдите в систему</Link>
+      </p>
+    </div>
   );
 }

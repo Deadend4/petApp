@@ -47,7 +47,6 @@ export const logInWithEmailAndPassword = async (
 };
 
 export const registerWithEmailAndPassword = async (
-  name: string,
   email: string,
   password: string,
 ): Promise<User | null> => {

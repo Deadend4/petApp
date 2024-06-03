@@ -3,15 +3,18 @@
   width: 100%;
   max-width: 520px;
   min-height: 54px;
-  border-radius: 17px;
+  border-radius: var(--border-radius);
   font-family: var(--main-font-family);
   font-size: var(--font-size-button);
   font-weight: 400;
   overflow: hidden;
+
+  transition: background-color 0.2s ease;
 }
 
 %button:hover {
   cursor: pointer;
+  background-color: var(--color-main-button-hovered);
 }
 
 .primaryButton {
