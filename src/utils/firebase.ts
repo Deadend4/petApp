@@ -5,6 +5,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  onAuthStateChanged as fbOnAuthStateChanged,
+  NextOrObserver,
 } from "firebase/auth";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 
@@ -22,7 +24,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
-
+export const onAuthStateChanged = (nextOrObserver: NextOrObserver<User>) => {
+  return fbOnAuthStateChanged(auth, nextOrObserver);
+};
 export const logoutFirebase = () => {
   signOut(auth);
 };
@@ -36,13 +40,10 @@ export const logInWithEmailAndPassword = async (
     return res.user;
   } catch (err) {
     if (err instanceof Error) {
-      // Handle authentication-specific errors gracefully
-      console.error(err.message);
-      alert(err.message);
+      throw new Error(err.message);
     } else {
-      console.error("Unexpected error", err);
+      throw new Error("Unexpected error");
     }
-    return null; // Return null in case of error
   }
 };
 
@@ -55,7 +56,6 @@ export const registerWithEmailAndPassword = async (
 
     const userData = {
       uid: res.user.uid,
-      name,
       email: res.user.email,
       images: [],
     };
@@ -69,21 +69,17 @@ export const registerWithEmailAndPassword = async (
       console.error(err.message);
       switch (err.message) {
         case "Firebase: Error (auth/wrong-password).":
-          alert("Неверный пароль.");
-          break;
+          throw new Error("Неверный пароль.");
         case "Firebase: Error (auth/user-not-found).":
-          alert("Пользователь с таким Email не найден.");
-          break;
+          throw new Error("Пользователь с таким Email не найден.");
         case "Firebase: Error (auth/email-already-in-use).":
-          alert("Пользователь с таким Email уже существует.");
-          break;
+          throw new Error("Пользователь с таким Email уже существует.");
         default:
-          alert(err.message);
+          throw new Error(err.message);
       }
     } else {
-      console.error("Unexpected error", err);
+      throw new Error("Unexpected error");
     }
-    return null; // Return null in case of error
   }
 };
 

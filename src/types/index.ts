@@ -1,6 +1,5 @@
-export interface UserType {
-  userId: string;
-  name: string;
-  email: string;
-  authToken?: string;
-}
+import { User } from "firebase/auth";
+
+export type UserType = User;
+
+export type UserStatus = "authenticated" | "unauthenticated" | "loading";

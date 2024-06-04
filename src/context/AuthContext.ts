@@ -1,12 +1,15 @@
 import { createContext } from "react";
-import { UserType } from "types/index";
+import { UserStatus, UserType } from "types/index";
+import { AuthReducerAction } from "./AuthReducer";
 
 interface AuthContext {
   user: UserType | null;
-  setUser: (user: UserType | null) => void;
+  status: UserStatus;
+  dispatch: React.Dispatch<AuthReducerAction>;
 }
 
 export const AuthContext = createContext<AuthContext>({
   user: null,
-  setUser: () => {},
+  status: "loading",
+  dispatch: () => {},
 });

@@ -3,11 +3,10 @@ import createAccountIcon from "assets/createAccountIcon.svg";
 import Button from "components/Button";
 import CheckboxWithLabel from "components/CheckboxWithLabel";
 import Input from "components/Input";
-import { useAuth } from "hooks/useAuth";
+import useAuth from "src/hooks/useAuth";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { registerWithEmailAndPassword } from "utils/firebase";
 import { InferType } from "yup";
 import styles from "./CreateAccount.module.scss";
 import formSchema from "./formSchema";
@@ -15,7 +14,7 @@ import formSchema from "./formSchema";
 type IFormValues = InferType<typeof formSchema>;
 export default function CreateAccount(): JSX.Element {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { login } = useAuth();
+  const { register: signUp } = useAuth();
   const {
     register,
     handleSubmit,
@@ -26,25 +25,11 @@ export default function CreateAccount(): JSX.Element {
   });
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
-      let user = null;
       setIsSubmitting(true);
-      user = await registerWithEmailAndPassword(data.email, data.password);
-      if (user !== null) {
-        const userData = {
-          userId: user.uid || "",
-          name: user.displayName || "",
-          email: user.email || "",
-        };
-        login(userData);
-      }
+      await signUp(data.email, data.password);
       setIsSubmitting(false);
     } catch (err) {
-      if (err instanceof Error) {
-        console.error(err.message);
-      } else {
-        console.error("Unexpected error", err);
-      }
-      return null;
+      alert((err as Error).message);
     }
   };
   return (
@@ -84,19 +69,11 @@ export default function CreateAccount(): JSX.Element {
           label={
             <p>
               Я принимаю{" "}
-              <a
-                href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="/terms" target="_blank" rel="noreferrer">
                 Правила
               </a>{" "}
               и{" "}
-              <a
-                href="https://www.figma.com/file/G6sv5hc8qywEs79DinOYdc/Pet-App-(Community)?type=design&node-id=1008-78018&mode=design&t=oRr8Sgb8HMt4JQDO-0"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="/conditions" target="_blank" rel="noreferrer">
                 Условия
               </a>
             </p>
@@ -113,7 +90,7 @@ export default function CreateAccount(): JSX.Element {
         />
       </form>
       <p className={styles.haveAccount}>
-        У вас уже есть аккаунт? <Link to="/auth/">Войдите в систему</Link>
+        У вас уже есть аккаунт? <Link to="/sign-in">Войдите в систему</Link>
       </p>
     </div>
   );

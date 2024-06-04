@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 5rem 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.logo {
+  position: relative;
+  max-width: 120px;
+  max-height: 94px;
+  top: 7rem;
+  left: -45%;
+  animation: logoOnLoad ease-out 1s;
+  animation-iteration-count: 1;
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    padding-top: 0;
+  }
+}

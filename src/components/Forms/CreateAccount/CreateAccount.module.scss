@@ -1,8 +1,4 @@
-%display-flex-col-center {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
+@import "src/components/Forms/FormStyles.module.scss";
 
 .container {
   position: relative;
@@ -19,42 +15,6 @@
   animation-iteration-count: 1;
 }
 
-.icon {
-  position: absolute;
-  width: 128px;
-  aspect-ratio: 1;
-  top: 0;
-  right: 50%;
-  transform: translate(50%, -50%);
-  border-radius: 50%;
-  background-color: var(--color-white-bg);
-}
-
-.title {
-  margin: 0;
-  margin-bottom: 1rem;
-  color: var(--color-heading);
-  font-size: 2rem;
-  text-align: center;
-}
-
-.description {
-  margin: 0;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-  width: 100%;
-}
-
-.haveAccount {
-  text-align: center;
-}
-
 @keyframes animationOnLoad {
   0% {
     right: -100%;
@@ -66,28 +26,28 @@
 }
 
 @media screen and (max-width: 1440px) {
-  .block {
+  .container {
     bottom: 0;
-    margin: 15rem 0 0;
-    padding: 45px;
+    margin: 50% 0 0;
+    padding: 3rem 1.5rem;
     animation: animationOnLoad ease-out 1s;
     animation-iteration-count: 1;
   }
-  .form {
-    gap: 15px;
+  .icon {
+    width: 100px;
   }
   @keyframes animationOnLoad {
   }
 }
 
 @media screen and (max-width: 860px) {
-  .block {
-    height: 100vh;
-    max-width: 100vw;
-    overflow: auto;
-    padding: 20px;
+  .container {
+    padding: 3rem 1.5rem;
   }
   .innerBlock {
     max-width: 100vw;
+  }
+  .icon {
+    width: 80px;
   }
 }

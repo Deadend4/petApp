@@ -1,16 +1,20 @@
-import { UserType } from "types/index";
-import { useUser } from "./useUser";
+import {
+  logInWithEmailAndPassword,
+  logoutFirebase,
+  registerWithEmailAndPassword,
+} from "src/utils/firebase";
+import { useAuthReducer } from "./useAuthContext";
 
-export const useAuth = () => {
-  const { user, addUser, removeUser } = useUser();
-
-  const login = (user: UserType) => {
-    addUser(user);
+export default function useAuth() {
+  const { user, status } = useAuthReducer();
+  const login = async (email: string, password: string) => {
+    return logInWithEmailAndPassword(email, password);
   };
-
   const logout = () => {
-    removeUser();
+    logoutFirebase();
   };
-
-  return { user, login, logout };
-};
+  const register = async (email: string, password: string) => {
+    return registerWithEmailAndPassword(email, password);
+  };
+  return { user, status, login, logout, register };
+}
