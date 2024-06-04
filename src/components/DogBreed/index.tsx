@@ -1,6 +1,5 @@
-import React from "react";
 import styles from "./DogBreed.module.scss";
-import backgroundImage from "../../../assets/DogBreedBackground.png";
+import backgroundImage from "assets/DogBreedBackground.png";
 interface DogBreedProps {
   breed: string;
   imgSrc: string;

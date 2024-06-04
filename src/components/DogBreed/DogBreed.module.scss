@@ -3,7 +3,7 @@
   flex-flow: column nowrap;
   position: relative;
   border: 2px solid var(--color-main-button);
-  border-radius: 18px;
+  border-radius: var(--border-radius);
   justify-content: start;
   align-items: center;
   max-width: 220px;

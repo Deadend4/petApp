@@ -1,0 +1,56 @@
+%display-flex-col-center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  background-color: var(--color-white-bg);
+  color: var(--color-text);
+  box-shadow: 0 4px 20px #3232470a;
+  border-radius: var(--border-radius);
+  padding: 4.375rem 4.375rem 2.5rem;
+  box-sizing: border-box;
+
+  // animation: animationOnLoad ease-out 1s;
+  // animation-iteration-count: 1;
+}
+
+.icon {
+  position: absolute;
+  width: 128px;
+  aspect-ratio: 1;
+  top: 0;
+  right: 50%;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  background-color: var(--color-white-bg);
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 1rem;
+  color: var(--color-heading);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.description {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  width: 100%;
+}
+
+.haveAccount {
+  text-align: center;
+}

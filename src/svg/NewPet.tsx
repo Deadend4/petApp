@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function NewPet(): JSX.Element {
   return (
     <svg width="62" height="62" viewBox="0 0 62 62" fill="none">

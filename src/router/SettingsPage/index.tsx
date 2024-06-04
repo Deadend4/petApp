@@ -1,11 +1,10 @@
-import React from "react";
-import SetRouterTitle from "../../utils/setRouterTitle";
 import styles from "./SettingsPage.module.scss";
-import SettingCard from "../../components/SettingCard";
-import getSettingsIcon from "../../utils/getSettingsIcon";
-import SelectTimezone from "../../components/SelectTimezone";
-import Selector from "../../components/Selector";
-import Switcher from "../../components/Switcher";
+import Selector from "components/Selector";
+import Switcher from "components/Switcher";
+import SettingCard from "components/SettingCard";
+import SelectTimezone from "components/SelectTimezone";
+import getSettingsIcon from "utils/getSettingsIcon";
+import SetRouterTitle from "utils/setRouterTitle";
 
 export default function SettingsPage(): JSX.Element {
   SetRouterTitle("Настройки");

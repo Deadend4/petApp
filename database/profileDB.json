@@ -1,0 +1,12 @@
+{
+  "profile": {
+    "user": {
+      "id": 1,
+      "name": "Джон Доу",
+      "age": 25,
+      "bio": "Специалист по разработке веб-сайтов.",
+      "avatar": "https://i.yapx.cc/MwR1U.gif",
+      "rating": 4.2
+    }
+  }
+}

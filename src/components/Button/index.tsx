@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.scss";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,7 +12,6 @@ export default function Button({
 }: ButtonProps): JSX.Element {
   return (
     <button
-      type="submit"
       className={isPrimary ? styles.primaryButton : styles.secondaryButton}
       {...otherProps}
     >

@@ -1,4 +1,3 @@
-import React from "react";
 import AccountIcon from "./AccountIcon";
 import CalendarIcon from "./CalendarIcon";
 import ContactsIcon from "./ContactsIcon";

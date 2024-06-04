@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./Avatar.module.scss";
-import placeholder from "../../../assets/placeholder.png";
-import OnlineCircle from "../../svg/OnlineCircle";
+import placeholder from "assets/placeholder.png";
+import OnlineCircle from "svg/OnlineCircle";
 import cx from "classnames";
 
 interface AvatarProps {

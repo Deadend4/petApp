@@ -1,19 +1,45 @@
-.password,
-.email {
-  border-radius: 14px;
-  width: 100%;
-  border: 1px solid var(--grey200);
-  color: var(--text);
-  padding: 0.8rem 1rem;
+%helper {
+  font-size: var(--font-size-helper);
+  padding: 0 1rem;
+}
+.labelsBlock {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.25rem;
+  position: relative;
 }
 
-.password:focus,
-.email:focus {
-  outline: var(--focus-outline);
+.helper {
+  @extend %helper;
 }
-.password:focus,
-.email::placeholder {
+
+.label {
+  color: var(--grey500);
+  font-size: var(--font-size-label);
+  padding: 0 1rem;
+}
+
+.error {
+  @extend %helper;
+  color: red;
+}
+
+.input {
+  border-radius: var(--border-radius);
+  width: 100%;
+  border: 1px solid var(--grey200);
   color: var(--grey600);
+  padding: 0.8rem 8% 0.8rem 1rem;
+}
+
+.errorInput {
+  @extend .input;
+  border-color: red;
+}
+
+.input:focus {
+  outline: var(--focus-outline);
+  color: var(--text);
 }
 
 .password {
@@ -41,6 +67,15 @@
 .passwordControl:hover,
 .passwordControl:focus {
   border: 1px solid transparent;
+  outline: none;
+}
+
+.passwordControl:focus-within {
+  border: 1px solid transparent;
+  outline: none;
+}
+.passwordControl:focus-visible {
+  border: var(--focus-outline);
   outline: none;
 }
 

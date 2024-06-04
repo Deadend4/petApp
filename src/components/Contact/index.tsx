@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "../Avatar";
+import Avatar from "components/Avatar";
 import styles from "./Contact.module.scss";
-import RatingStar from "../../svg/RatingStar";
+import RatingStar from "svg/RatingStar";
 
 interface WardsProps {
   id: string;

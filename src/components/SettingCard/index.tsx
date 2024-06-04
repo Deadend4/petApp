@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SettingCard.module.scss";
-import placeholder from "../../../assets/placeholder.png";
-import SelectTimezone from "../SelectTimezone";
+import placeholder from "assets/placeholder.png";
+import SelectTimezone from "components/SelectTimezone";
 
 interface SettingCardProps {
   settingIcon: string;

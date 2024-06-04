@@ -1,8 +1,7 @@
-import React from "react";
 import styles from "./YourPetsPage.module.scss";
-import Button from "../../components/Button";
-import emptyPetProfile from "../../../assets/EmptyPetProfile.png";
-import SetRouterTitle from "../../utils/setRouterTitle";
+import emptyPetProfile from "assets/EmptyPetProfile.png";
+import Button from "components/Button";
+import SetRouterTitle from "utils/setRouterTitle";
 
 export default function YourPetsPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");

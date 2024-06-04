@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SettingsIcon(): JSX.Element {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
