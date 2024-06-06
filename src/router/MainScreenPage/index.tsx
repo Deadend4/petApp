@@ -4,12 +4,14 @@ import UserCard from "components/UserCard";
 import PawBuddyLogo from "svg/PawBuddyLogo";
 import SideMenuItem from "components/SideMenuItem";
 import SideMenuIcon from "svg/SideMenu/SideMenuIcon";
-import { getProfileName, getProfileAvatar } from "utils/parseProfile";
 import SetRouterTitle from "utils/setRouterTitle";
 import { Link, Outlet } from "react-router-dom";
+import useAuth from "src/hooks/useAuth";
 
 export default function MainScreenPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");
+  const { user } = useAuth();
+
   return (
     <div className={styles.background}>
       <div className={styles.mainScreenBlock}>
@@ -56,8 +58,8 @@ export default function MainScreenPage(): JSX.Element {
 
           <UserCard
             user={{
-              title: getProfileName(),
-              src: getProfileAvatar(),
+              title: user!.name ? user!.name : user!.email,
+              src: user!.photo,
             }}
           />
         </div>

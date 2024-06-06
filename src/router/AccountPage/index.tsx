@@ -2,14 +2,10 @@ import styles from "./AccountPage.module.scss";
 import Avatar from "components/Avatar";
 import Input from "components/Input";
 import Button from "components/Button";
-import {
-  getProfileAvatar,
-  getProfileBio,
-  getProfileName,
-  setProfileAvatar,
-} from "utils/parseProfile";
+
 import SetRouterTitle from "utils/setRouterTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
+import useAuth from "src/hooks/useAuth";
 
 type FormValues = {
   avatar: string;
@@ -18,12 +14,23 @@ type FormValues = {
 };
 export default function AccountPage() {
   SetRouterTitle("Аккаунт");
-  const name = getProfileName();
-  const avatar = getProfileAvatar();
-  const bio = getProfileBio();
-  const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = (data) =>
-    setProfileAvatar(data.avatar);
+  const { user, updateUser } = useAuth();
+  const { register, handleSubmit } = useForm<FormValues>({
+    defaultValues: {
+      avatar: user?.photo,
+      name: user?.name || user?.email,
+      bio: user?.bio,
+    },
+  });
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    updateUser({
+      uid: user!.uid,
+      photo: data.avatar,
+      name: data.name,
+      bio: data.bio,
+    });
+  };
+
   return (
     <div className={styles.accountPage}>
       <div className={styles.description}>
@@ -34,7 +41,7 @@ export default function AccountPage() {
         <div className={styles.accountSetting}>
           <div className={styles.innerDescriptionBlock}>
             <h2>Аватар</h2>
-            <Avatar src={avatar} alt="Profile avatar" width={100} />
+            <Avatar src={user?.photo} alt="Profile avatar" width={100} />
           </div>
           <div className={styles.innerSettingBlock}>
             <p>
@@ -49,7 +56,7 @@ export default function AccountPage() {
         <div className={styles.accountSetting}>
           <div className={styles.innerDescriptionBlock}>
             <h2>Имя</h2>
-            <p>{name}</p>
+            <p>{user?.name || user?.email}</p>
           </div>
           <div className={styles.innerSettingBlock}>
             <p>Вы можете изменить Ваше имя</p>
@@ -61,7 +68,7 @@ export default function AccountPage() {
         <div className={styles.accountSetting}>
           <div className={styles.innerDescriptionBlock}>
             <h2>О Вас</h2>
-            <p>{bio}</p>
+            <p>{user?.bio}</p>
           </div>
           <div className={styles.innerSettingBlock}>
             <p>Вы можете изменить Ваше имя</p>

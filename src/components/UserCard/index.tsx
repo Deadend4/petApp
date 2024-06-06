@@ -5,7 +5,7 @@ import ExitIcon from "../../svg/ExitIcon";
 import useAuth from "src/hooks/useAuth";
 
 interface UserCardProps {
-  user: { title: string; src: string };
+  user: { title?: string; src?: string };
 }
 
 const defaultProps: UserCardProps = {

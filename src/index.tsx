@@ -12,7 +12,7 @@ import MainScreenPage from "router/MainScreenPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthWrapper from "./router/AuthWrapper";
 import authReducer from "./context/AuthReducer";
-import { onAuthStateChanged } from "./utils/firebase";
+import firebase from "./clients/firebase";
 
 const containter = document.querySelector("#root");
 const root = createRoot(containter!);
@@ -62,11 +62,16 @@ function App() {
     status: "loading",
   });
   useEffect(() => {
-    const unsub = onAuthStateChanged((user) => {
-      dispatch({ type: "setUser", payload: user });
+    const unsub = firebase.auth.onAuthStateChanged(async (user) => {
       if (user) {
+        const dbUser = await firebase.database.user.getUser(user.uid);
+        dispatch({
+          type: "setUser",
+          payload: { ...dbUser, email: user.email! },
+        });
         dispatch({ type: "setStatus", payload: "authenticated" });
       } else {
+        dispatch({ type: "setUser", payload: user });
         dispatch({ type: "setStatus", payload: "unauthenticated" });
       }
     });
