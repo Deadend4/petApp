@@ -1,0 +1,28 @@
+$duration: 1s;
+$speedMultiplier: 8;
+
+%animation {
+  animation-name: fadeInOut;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+}
+
+@for $i from 1 through 4 {
+  .finger#{$i}fill,
+  .finger#{$i}stroke {
+    @extend %animation;
+    animation-delay: $i * ($duration / $speedMultiplier);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

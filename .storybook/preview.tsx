@@ -1,6 +1,5 @@
 import type { Preview } from "@storybook/react";
 import "../src/styles.scss";
-import "../src/router/Root/Root.module.scss";
 import { MemoryRouter } from "react-router-dom";
 import React from "react";
 
