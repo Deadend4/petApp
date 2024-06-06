@@ -1,7 +1,8 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "src/hooks/useAuth";
 
-const unAuthPaths = ["/", "/sign-in", "/sign-up"];
+const unAuthPaths = ["/sign-in", "/sign-up"];
+const authPaths = ["/", ...unAuthPaths];
 
 export default function AuthWrapper(): JSX.Element {
   const { status } = useAuth();
@@ -10,13 +11,15 @@ export default function AuthWrapper(): JSX.Element {
 
   switch (status) {
     case "authenticated":
-      if (unAuthPaths.includes(location.pathname)) {
+      if (authPaths.includes(location.pathname)) {
         navigate("/home");
       }
       return <Outlet />;
     case "unauthenticated":
-      navigate("/sign-in");
-      return <h1>Loading...</h1>;
+      if (!unAuthPaths.includes(location.pathname)) {
+        navigate("/sign-in");
+      }
+      return <Outlet />;
     default:
       return <h1>Loading...</h1>;
   }

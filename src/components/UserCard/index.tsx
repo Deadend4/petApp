@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./UserCard.module.scss";
 import Avatar from "../Avatar";
 import ExitIcon from "../../svg/ExitIcon";
-import { Link } from "react-router-dom";
+import useAuth from "src/hooks/useAuth";
 
 interface UserCardProps {
   user: { title: string; src: string };
@@ -13,6 +13,7 @@ const defaultProps: UserCardProps = {
 };
 
 function UserCard({ user }: UserCardProps): JSX.Element {
+  const { logout } = useAuth();
   return (
     <div className={styles.userCardBlock}>
       <div className={styles.leftPart}>
@@ -30,9 +31,9 @@ function UserCard({ user }: UserCardProps): JSX.Element {
         </div>
       </div>
 
-      <Link to="/" className={styles.exit}>
+      <button className={styles.exit} onClick={logout}>
         <ExitIcon width={18} height={16} />
-      </Link>
+      </button>
     </div>
   );
 }
