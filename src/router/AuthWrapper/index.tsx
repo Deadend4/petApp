@@ -1,4 +1,5 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import Loader from "src/components/Loader";
 import useAuth from "src/hooks/useAuth";
 
 const unAuthPaths = ["/sign-in", "/sign-up"];
@@ -21,6 +22,6 @@ export default function AuthWrapper(): JSX.Element {
       }
       return <Outlet />;
     default:
-      return <h1>Loading...</h1>;
+      return <Loader />;
   }
 }
