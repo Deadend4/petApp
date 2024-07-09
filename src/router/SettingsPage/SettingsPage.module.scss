@@ -1,6 +1,5 @@
 .settings {
   margin: 0 1.875rem;
-  padding: 1.875rem;
 }
 
 .description {
@@ -38,7 +37,7 @@
     font-size: 18px;
     font-weight: 600;
     color: var(--grey800);
-    width: 200px;
+    width: fit-content;
     margin: 0;
   }
 }
