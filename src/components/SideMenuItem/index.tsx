@@ -21,7 +21,6 @@ export default function SideMenuItem({
     </div>
   );
   const renderItem =
-    link.length > 0 ? (
       <Link
         to={link}
         className={cx({
@@ -32,15 +31,5 @@ export default function SideMenuItem({
       >
         {renderContent}
       </Link>
-    ) : (
-      <button
-        className={cx({
-          [styles.menuItem]: true,
-          [styles.selectedItem]: isSelected,
-        })}
-      >
-        {renderContent}
-      </button>
-    );
   return renderItem;
 }
