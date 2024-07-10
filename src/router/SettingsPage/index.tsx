@@ -5,10 +5,16 @@ import SettingCard from "components/SettingCard";
 import SelectTimezone from "components/SelectTimezone";
 import getSettingsIcon from "utils/getSettingsIcon";
 import SetRouterTitle from "utils/setRouterTitle";
+import { useContext } from "react";
+import { MenuContext } from "src/context/MenuContext";
+import BackButton from "src/components/BackButton";
 
 export default function SettingsPage(): JSX.Element {
+  const {setIsMenu} = useContext(MenuContext);
   SetRouterTitle("Настройки");
   return (
+    <>
+    <BackButton to="/home" onClick={() => {setIsMenu?.(true)}} title="Настройки"/>
     <div className={styles.settings}>
       <div className={styles.description}>
         <h1>Настройки</h1>
@@ -81,5 +87,6 @@ export default function SettingsPage(): JSX.Element {
         </div>
       </div>
     </div>
+    </>
   );
 }

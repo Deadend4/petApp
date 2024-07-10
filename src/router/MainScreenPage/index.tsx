@@ -7,15 +7,23 @@ import SideMenuIcon from "svg/SideMenu/SideMenuIcon";
 import SetRouterTitle from "utils/setRouterTitle";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "src/hooks/useAuth";
+import { useState } from "react";
+import { MenuContext } from "src/context/MenuContext";
 
 export default function MainScreenPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");
   const { user } = useAuth();
-
+  const [isMenu, setIsMenu] = useState(true);
+  const dashboard = <SideMenuItem icon={<SideMenuIcon type="dashboard" />} title="Доска"  key="dashboard"/>;
+  const contacts = <SideMenuItem icon={<SideMenuIcon type="contacts" />} title="Контакты"  key="contacts"/>;
+  const calendar = <SideMenuItem icon={<SideMenuIcon type="calendar" />} title="Календарь" link="/calendar" key="calendar"/>;
+  const account = <SideMenuItem icon={<SideMenuIcon type="account" />} title="Аккаунт" link="/account" key="account" />
+  const settings = <SideMenuItem icon={<SideMenuIcon type="settings" />} title="Настройки" link="/settings" key="settings" />
   return (
-    <div className={styles.background}>
+    <MenuContext.Provider value={{isMenu, setIsMenu}}>
+      <div className={styles.background}>
       <div className={styles.mainScreenBlock}>
-        <div className={styles.sideMenu}>
+        <div className={isMenu ? styles.sideMenu : styles.sideMenuHidden}>
           <Link to="/home" className={styles.logo}>
             <PawBuddyLogo width={172} height={100} />
           </Link>
@@ -28,32 +36,14 @@ export default function MainScreenPage(): JSX.Element {
           </div>
           <hr />
           <div className={styles.buttonsBlock}>
-            <SideMenuItem
-              icon={<SideMenuIcon type="dashboard" />}
-              title="Доска"
-            />
-            <SideMenuItem
-              icon={<SideMenuIcon type="contacts" />}
-              title="Контакты"
-            />
-            <SideMenuItem
-              icon={<SideMenuIcon type="calendar" />}
-              title="Календарь"
-              link="/calendar"
-            />
+            {dashboard}
+            {contacts}
+            {calendar}
           </div>
           <hr />
           <div className={styles.buttonsBlock}>
-            <SideMenuItem
-              icon={<SideMenuIcon type="account" />}
-              title="Аккаунт"
-              link="/account"
-            />
-            <SideMenuItem
-              icon={<SideMenuIcon type="settings" />}
-              title="Настройки"
-              link="/settings"
-            />
+            {account}
+            {settings}
           </div>
 
           <UserCard
@@ -63,10 +53,12 @@ export default function MainScreenPage(): JSX.Element {
             }}
           />
         </div>
-        <div className={styles.rightSide}>
+        <div className={isMenu ? styles.rightSide : styles.rightSideShown}>
           <Outlet />
         </div>
       </div>
     </div>
+    </MenuContext.Provider>
+    
   );
 }
