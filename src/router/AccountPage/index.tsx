@@ -7,8 +7,7 @@ import SetRouterTitle from "utils/setRouterTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from "src/hooks/useAuth";
 import BackButton from "src/components/BackButton";
-import { useContext } from "react";
-import { MenuContext } from "src/context/MenuContext";
+import { useMenuContext } from "src/context/MenuContext";
 
 type FormValues = {
   avatar: string;
@@ -17,7 +16,7 @@ type FormValues = {
 };
 export default function AccountPage() {
   SetRouterTitle("Аккаунт");
-  const {setIsMenu} = useContext(MenuContext);
+  const {setIsMenuShown} = useMenuContext();
   const { user, updateUser } = useAuth();
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
@@ -36,7 +35,7 @@ export default function AccountPage() {
   };
 
   return (<>
-  <BackButton to="/home" onClick={() => {setIsMenu?.(true)}} title="Аккаунт"/>
+  <BackButton to="" onClick={() => {setIsMenuShown(true)}} title="Аккаунт"/>
   <div className={styles.accountPage}>
       <div className={styles.description}>
         <h1>Аккаунт</h1>

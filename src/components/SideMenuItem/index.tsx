@@ -1,8 +1,7 @@
 import styles from "./SideMenuItem.module.scss";
 import { Link } from "react-router-dom";
 import cx from "classnames";
-import {useContext} from 'react';
-import { MenuContext } from "src/context/MenuContext";
+import { useMenuContext } from "src/context/MenuContext";
 
 interface SideMenuItemProps {
   title: string;
@@ -17,7 +16,7 @@ export default function SideMenuItem({
   icon,
   isSelected = false,
 }: SideMenuItemProps): JSX.Element {
-  const {setIsMenu} = useContext(MenuContext);
+  const {setIsMenuShown} = useMenuContext();
   const renderContent = (
     <div>
       {icon} {title}
@@ -31,7 +30,7 @@ export default function SideMenuItem({
           [styles.selectedItem]: isSelected,
           [styles.link]: true,
         })}
-        onClick={() => {setIsMenu?.((isMenu) => !isMenu)}}
+        onClick={() => { setIsMenuShown((isMenuShown) => !isMenuShown);}}
       >
         {renderContent}
       </Link>

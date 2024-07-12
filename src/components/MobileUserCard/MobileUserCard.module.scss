@@ -1,0 +1,58 @@
+.userCardBlock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid color(--grey700);
+    gap: 0.75rem;
+    padding: 0.75rem 1rem 0.75rem;
+    max-width: fit-content;
+    max-height: 5.25rem;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    span {
+      line-height: 1.375rem;
+    }
+  }
+  
+  .userCardContent {
+    color: var(--color-white);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 0.875rem;
+    width: 100%;
+    max-width: 6rem;
+    overflow: hidden;
+  }
+  
+  .leftPart {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.75rem;
+  }
+  
+  .userCardContent > span + span {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .exit {
+    padding: 0.3rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .exit:hover {
+    background: var(--grey800);
+    border: none;
+  }
+  

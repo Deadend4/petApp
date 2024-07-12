@@ -13,6 +13,7 @@
   hr {
     border: 1px solid var(--grey700);
     width: 100%;
+    box-sizing: border-box;
   }
 }
 .sideMenuHidden,
@@ -20,13 +21,13 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  max-width: 14rem;
+  max-width: 16rem;
   width: 100%;
   gap: 1.8rem;
   padding: 1.875rem;
   padding-right: 2.375rem;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
   background: var(--black-background-color);
 }
 
@@ -70,22 +71,78 @@
   padding: 0;
   margin: 0;
 }
+.userCard {
+  display: block;
+}
+.mobileUserCard {
+  display: none;
+}
 
 @media screen and (max-width: 1280px) {
   .sideMenu {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 1;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    gap: 0.5rem;
+    animation: 0.3s ease-in slideout;
+    
+  }
+  .sideMenuHidden {
     max-width: 100%;
     width: 100%;
     gap: 0.5rem;
-  }
-  .sideMenuHidden {
-    display: none;
+    
+    // display: none;
+    // animation: 1s ease-in slidein;
   }
   .rightSide {
-    display: none;
+    // display: none;
+    
   }
   .rightSideShown {
     display: block;
     max-width: 100%;
     width: 100%;
+    border-radius: 0;
+    position: absolute;
+    animation: 0.3s ease-in slidein;
+  }
+  body {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+  .logo {
+    display: none;
+  }
+  .userCard {
+    display: none;
+  }
+  .mobileUserCard {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @keyframes slidein {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+      display: none;
+    }
+  }
+  @keyframes slideout {
+    from {
+      transform: translateX(-100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
   }
 }

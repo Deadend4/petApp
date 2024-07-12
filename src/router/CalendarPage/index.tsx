@@ -1,15 +1,14 @@
 import SetRouterTitle from "utils/setRouterTitle";
 import styles from "./CalendarPage.module.scss";
 import Calendar from "react-calendar";
-import { useContext } from "react";
-import { MenuContext } from "src/context/MenuContext";
+import { useMenuContext } from "src/context/MenuContext";
 import BackButton from "src/components/BackButton";
 
 export default function CalendarPage(): JSX.Element {
   SetRouterTitle("Календарь");
-  const {setIsMenu} = useContext(MenuContext);
+  const {setIsMenuShown} = useMenuContext();
   return (<>
-  <BackButton to="/home" onClick={() => {setIsMenu?.(true)}} title="Календарь"/>
+  <BackButton to="" onClick={() => {setIsMenuShown(true)}} title="Календарь"/>
   <div className={styles.calendarPage}>
       <div className={styles.calendarSide}>
         <div className={styles.description}>
