@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import BackButton from '.';
+import MobileHeader from ".";
 
-const meta: Meta<typeof BackButton> = {
-  title: "Components/BackButton",
-  component: BackButton,
+const meta: Meta<typeof MobileHeader> = {
+  title: "Components/MobileHeader",
+  component: MobileHeader,
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -22,9 +22,8 @@ const meta: Meta<typeof BackButton> = {
 
 export default meta;
 
-type Story = StoryObj<typeof BackButton>;
+type Story = StoryObj<typeof MobileHeader>;
 
 export const Default: Story = {
-  args: {
-  },
+  args: {},
 };

@@ -6,7 +6,7 @@ import Button from "components/Button";
 import SetRouterTitle from "utils/setRouterTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from "src/hooks/useAuth";
-import BackButton from "src/components/BackButton";
+import MobileHeader from "src/components/MobileHeader";
 import { useMenuContext } from "src/context/MenuContext";
 
 type FormValues = {
@@ -16,7 +16,7 @@ type FormValues = {
 };
 export default function AccountPage() {
   SetRouterTitle("Аккаунт");
-  const {setIsMenuShown} = useMenuContext();
+  const { setIsMenuShown } = useMenuContext();
   const { user, updateUser } = useAuth();
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
@@ -34,57 +34,63 @@ export default function AccountPage() {
     });
   };
 
-  return (<>
-  <BackButton to="" onClick={() => {setIsMenuShown(true)}} title="Аккаунт"/>
-  <div className={styles.accountPage}>
-      <div className={styles.description}>
-        <h1>Аккаунт</h1>
-        <p>На этой странице Вы можете настроить свой профиль.</p>
+  return (
+    <>
+      <MobileHeader
+        to=""
+        onClick={() => {
+          setIsMenuShown(true);
+        }}
+        title="Аккаунт"
+      />
+      <div className={styles.accountPage}>
+        <div className={styles.description}>
+          <h1>Аккаунт</h1>
+          <p>На этой странице Вы можете настроить свой профиль.</p>
+        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          <div className={styles.accountSetting}>
+            <div className={styles.innerDescriptionBlock}>
+              <h2>Аватар</h2>
+              <Avatar src={user?.photo} alt="Profile avatar" width={100} />
+            </div>
+            <div className={styles.innerSettingBlock}>
+              <p>
+                Добавьте ссылку на аватарку в формате <code>*.gif</code>,{" "}
+                <code>*.jpg</code> или <code>*.png</code>.
+              </p>
+              <div className={styles.uploadImage}>
+                <Input type="text" {...register("avatar")} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.accountSetting}>
+            <div className={styles.innerDescriptionBlock}>
+              <h2>Имя</h2>
+              <p>{user?.name || user?.email}</p>
+            </div>
+            <div className={styles.innerSettingBlock}>
+              <p>Вы можете изменить Ваше имя</p>
+              <div className={styles.uploadImage}>
+                <Input type="text" {...register("name")} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.accountSetting}>
+            <div className={styles.innerDescriptionBlock}>
+              <h2>О Вас</h2>
+              <p>{user?.bio}</p>
+            </div>
+            <div className={styles.innerSettingBlock}>
+              <p>Вы можете изменить Ваше имя</p>
+              <div className={styles.uploadImage}>
+                <Input type="text" {...register("bio")} />
+              </div>
+            </div>
+          </div>
+          <Button type="submit" isPrimary={true} label={"Загрузить"} />
+        </form>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <div className={styles.accountSetting}>
-          <div className={styles.innerDescriptionBlock}>
-            <h2>Аватар</h2>
-            <Avatar src={user?.photo} alt="Profile avatar" width={100} />
-          </div>
-          <div className={styles.innerSettingBlock}>
-            <p>
-              Добавьте ссылку на аватарку в формате <code>*.gif</code>,{" "}
-              <code>*.jpg</code> или <code>*.png</code>.
-            </p>
-            <div className={styles.uploadImage}>
-              <Input type="text" {...register("avatar")} />
-            </div>
-          </div>
-        </div>
-        <div className={styles.accountSetting}>
-          <div className={styles.innerDescriptionBlock}>
-            <h2>Имя</h2>
-            <p>{user?.name || user?.email}</p>
-          </div>
-          <div className={styles.innerSettingBlock}>
-            <p>Вы можете изменить Ваше имя</p>
-            <div className={styles.uploadImage}>
-              <Input type="text" {...register("name")} />
-            </div>
-          </div>
-        </div>
-        <div className={styles.accountSetting}>
-          <div className={styles.innerDescriptionBlock}>
-            <h2>О Вас</h2>
-            <p>{user?.bio}</p>
-          </div>
-          <div className={styles.innerSettingBlock}>
-            <p>Вы можете изменить Ваше имя</p>
-            <div className={styles.uploadImage}>
-              <Input type="text" {...register("bio")} />
-            </div>
-          </div>
-        </div>
-        <Button type="submit" isPrimary={true} label={"Загрузить"} />
-      </form>
-    </div>
-  </>
-    
+    </>
   );
 }

@@ -16,7 +16,7 @@ export default function SelectTimezone(): JSX.Element {
   return (
     <Selector onChange={(e) => parseTimezone(e.currentTarget.value)}>
       {options.map((option) => (
-        <option key={option.abbrev} value={option.value}>
+        <option key={option.value} value={option.value}>
           {option.label}
         </option>
       ))}
