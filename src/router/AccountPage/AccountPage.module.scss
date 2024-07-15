@@ -31,7 +31,7 @@
 
 .accountSetting {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   gap: 1.5rem;
   border: 1px solid var(--grey150);
   border-radius: 18px;
@@ -43,7 +43,7 @@
 
 .innerSettingBlock {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   gap: 1.5rem;
   width: 100%;
   p {
@@ -54,15 +54,20 @@
     border-radius: 4px;
     padding: 0.2rem;
   }
+  @media (max-width: 1280px) {
+    gap: 0.5rem;
+  }
 }
 .innerDescriptionBlock {
   display: flex;
-  flex-flow: column nowrap;
   justify-content: flex-start;
-  gap: 1.5rem;
-  max-width: 300px;
+  align-items: center;
+  padding-left: 1rem;
+  max-width: 150px;
   width: 100%;
-  border-right: 1px solid var(--grey150);
+  @media (max-width: 1280px) {
+    max-width: 100px;
+  }
 }
 
 .uploadImage {
@@ -81,4 +86,36 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 1.5rem;
+}
+.uploadAvatarButton {
+  position: absolute;
+  visibility: hidden;
+}
+.updateAvatar {
+  position: absolute;
+  width: fit-content;
+  background-color: var(--color-white);
+  padding: 1rem;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.avatarBlock {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-self: flex-start;
+  align-items: center;
+  width: fit-content;
+  border-radius: 50%;
+  &:hover .avatar {
+    filter: blur(1px);
+  }
+  &:hover .updateAvatar {
+    opacity: 100%;
+    transition: opacity 0.2s ease-in;
+  }
 }
