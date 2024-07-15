@@ -49,3 +49,9 @@
   gap: 1.25rem;
   width: 100%;
 }
+
+@media (max-width: 1280px) {
+  .category {
+    flex-flow: column nowrap;
+  }
+}
