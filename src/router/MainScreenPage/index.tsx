@@ -10,6 +10,9 @@ import MobileUserCard from "src/components/MobileUserCard";
 import CrossButton from "src/svg/CrossButton";
 import { MenuContext } from "src/context/MenuContext";
 import { sideAppButtons, sideUserButtons } from "src/constants/SideMenu";
+import cn from "classnames/bind";
+
+const cx = cn.bind(styles);
 
 export default function MainScreenPage(): JSX.Element {
   SetRouterTitle("Ваши питомцы");
@@ -20,7 +23,11 @@ export default function MainScreenPage(): JSX.Element {
       <div className={styles.background}>
         <div className={styles.mainScreenBlock}>
           <div
-            className={isMenuShown ? styles.sideMenu : styles.sideMenuHidden}
+            className={cx({
+              sideMenu: true,
+              sideMenuShown: isMenuShown,
+              sideMenuHidden: !isMenuShown,
+            })}
           >
             <div className={styles.mobileUserCard}>
               <MobileUserCard
@@ -62,9 +69,7 @@ export default function MainScreenPage(): JSX.Element {
               />
             </div>
           </div>
-          <div
-            className={isMenuShown ? styles.rightSide : styles.rightSideShown}
-          >
+          <div className={styles.rightSide}>
             <Outlet />
           </div>
         </div>
