@@ -50,13 +50,12 @@ export default function AccountPage() {
           <p>На этой странице Вы можете настроить свой профиль.</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          <div className={styles.accountSetting}>
-            <div className={styles.innerSettingBlock}>
-              <div className={styles.innerDescriptionBlock}>
+          <div className={styles.accountSettings}>
+            <div className={styles.settingContainer}>
+              <div className={styles.title}>
                 <p>Аватар</p>
               </div>
-
-              <div className={styles.uploadImage}>
+              <div className={styles.setting}>
                 <div className={styles.avatarBlock}>
                   <div className={styles.avatar}>
                     <Avatar
@@ -81,19 +80,19 @@ export default function AccountPage() {
                 </div>
               </div>
             </div>
-            <div className={styles.innerSettingBlock}>
-              <div className={styles.innerDescriptionBlock}>
+            <div className={styles.settingContainer}>
+              <div className={styles.title}>
                 <p>Имя</p>
               </div>
-              <div className={styles.uploadImage}>
+              <div className={styles.setting}>
                 <Input type="text" {...register("name")} />
               </div>
             </div>
-            <div className={styles.innerSettingBlock}>
-              <div className={styles.innerDescriptionBlock}>
+            <div className={styles.settingContainer}>
+              <div className={styles.title}>
                 <p>О себе</p>
               </div>
-              <div className={styles.uploadImage}>
+              <div className={styles.setting}>
                 <textarea rows={5} {...register("bio")} />
               </div>
             </div>
