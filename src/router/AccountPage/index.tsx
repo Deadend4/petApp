@@ -96,7 +96,7 @@ export default function AccountPage() {
                 <textarea rows={5} {...register("bio")} />
               </div>
             </div>
-            <Button type="submit" isPrimary={true} label={"Загрузить"} />
+            <Button type="submit" isPrimary={true} label="Загрузить" />
           </div>
         </form>
       </div>
