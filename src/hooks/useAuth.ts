@@ -15,7 +15,7 @@ export default function useAuth() {
       email,
       password,
     );
-    firebase.database.user.setUser({ uid: user.uid });
+    firebase.database.user.setUser({ uid: user.uid, photo: "", bio: "", name: "" });
   };
   const updateUser = async (userData: DBUser) => {
     if (user) {
