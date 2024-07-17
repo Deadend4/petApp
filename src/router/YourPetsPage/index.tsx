@@ -31,7 +31,7 @@ export default function YourPetsPage(): JSX.Element {
             alt="Empty pet profile image"
           />
         </div>
-        <Button isPrimary={true} label={"Добавить питомца"} />
+        <Button isPrimary={true} label="Добавить питомца" />
       </div>
     </>
   );
