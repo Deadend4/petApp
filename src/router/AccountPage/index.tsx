@@ -32,6 +32,13 @@ export default function AccountPage() {
   });
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     if (tempAvatar.current) {
+      if (user?.photo) {
+        try {
+          await firebase.storage.deleteFile(user.photo);
+        } catch (error) {
+          alert((error as Error).message);
+        }
+      }
       const uploadTask = await firebase.storage.uploadFile(tempAvatar.current, user!.uid);
       const file = await firebase.storage.getURL(uploadTask);
       updateUser({

@@ -1,4 +1,4 @@
-import { ref, FirebaseStorage, uploadBytesResumable, getDownloadURL, UploadTask, UploadTaskSnapshot} from "firebase/storage";
+import { ref, FirebaseStorage, uploadBytesResumable, getDownloadURL, UploadTask, UploadTaskSnapshot, deleteObject } from "firebase/storage";
 
 export default class Firestorage {
     constructor(storage: FirebaseStorage ) {
@@ -15,5 +15,9 @@ export default class Firestorage {
     };
     getURL = async (uploadTaskSnapshot: UploadTaskSnapshot): Promise<string> => {
       return await getDownloadURL(uploadTaskSnapshot.ref);
+    }
+    deleteFile = async (url: string) => {
+      const storageRef = ref(this.storage, url);
+      await deleteObject(storageRef);
     }
   }
