@@ -32,7 +32,7 @@ export default function AccountPage() {
   });
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     if (tempAvatar.current) {
-      const uploadTask = await firebase.storage.uploadFile(tempAvatar.current);
+      const uploadTask = await firebase.storage.uploadFile(tempAvatar.current, user!.uid);
       const file = await firebase.storage.getURL(uploadTask);
       updateUser({
         uid: user!.uid,
@@ -96,7 +96,9 @@ export default function AccountPage() {
                     onChange={(e) => {
                       if (e.target.files) {
                         tempAvatar.current = e.target.files[0];
-                        setAvatar(URL.createObjectURL(e.target.files[0]));                        
+                        if (tempAvatar.current) {
+                          setAvatar(URL.createObjectURL(e.target.files[0]));  
+                        }              
                       }
                     }}
                   />

@@ -5,11 +5,11 @@ export default class Firestorage {
       this.storage = storage;
     }
     private storage: FirebaseStorage;
-    uploadFile = async (file: File): Promise<UploadTask> => {
+    uploadFile = async (file: File, folder: string): Promise<UploadTask> => {
       const metadata = {
         contentType: 'image/jpeg'
       };
-      const storageRef = ref(this.storage, `images/${file.name}`);
+      const storageRef = ref(this.storage, `images/${folder}/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file, metadata);      
       return uploadTask;
     };
