@@ -17,18 +17,20 @@ export default function Avatar({
   isOnline,
   withOutline = false,
 }: AvatarProps): JSX.Element {
+ 
   const circleWidth = width / 3;
   const online = isOnline ? <OnlineCircle width={circleWidth} /> : false;
   return (
     <div className={styles.avatarBlock}>
       <img
-        src={src || placeholder}
+        src={src}
         width={width}
         className={cx({
           [styles.avatar]: true,
           [styles.avatarWithOutline]: withOutline,
         })}
         alt={alt}
+        onError={(event)=> event.currentTarget.src = placeholder}
       />
       <div className={styles.online}>{online}</div>
     </div>

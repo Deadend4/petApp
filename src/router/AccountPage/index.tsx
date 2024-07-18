@@ -9,6 +9,8 @@ import useAuth from "src/hooks/useAuth";
 import MobileHeader from "src/components/MobileHeader";
 import { useMenuContext } from "src/context/MenuContext";
 import EditIcon from "src/svg/EditIcon";
+import firebase from "src/clients/firebase";
+import { useRef, useState } from "react";
 
 type FormValues = {
   avatar: string;
@@ -17,8 +19,10 @@ type FormValues = {
 };
 export default function AccountPage() {
   SetRouterTitle("Аккаунт");
+  const tempAvatar = useRef<File>();
   const { setIsMenuShown } = useMenuContext();
   const { user, updateUser } = useAuth();
+  const [avatar, setAvatar] = useState(user?.photo);
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       avatar: user?.photo,
@@ -26,13 +30,26 @@ export default function AccountPage() {
       bio: user?.bio,
     },
   });
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    updateUser({
-      uid: user!.uid,
-      photo: data.avatar,
-      name: data.name,
-      bio: data.bio,
-    });
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    if (tempAvatar.current) {
+      const uploadTask = await firebase.storage.uploadFile(tempAvatar.current);
+      const file = await firebase.storage.getURL(uploadTask);
+      updateUser({
+        uid: user!.uid,
+        photo: file,
+        name: data.name,
+        bio: data.bio,
+      });
+    } else {
+      updateUser({
+        ...user,
+        uid: user!.uid,
+        name: data.name,
+        bio: data.bio,
+      });
+    }
+    
+    
   };
 
   return (
@@ -59,7 +76,7 @@ export default function AccountPage() {
                 <div className={styles.avatarBlock}>
                   <div className={styles.avatar}>
                     <Avatar
-                      src={user?.photo}
+                      src={avatar}
                       alt="Profile avatar"
                       width={100}
                     />
@@ -76,6 +93,12 @@ export default function AccountPage() {
                     className={styles.uploadAvatarButton}
                     id="avatar-uploader"
                     accept="image/png, image/jpeg"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        tempAvatar.current = e.target.files[0];
+                        setAvatar(URL.createObjectURL(e.target.files[0]));                        
+                      }
+                    }}
                   />
                 </div>
               </div>
