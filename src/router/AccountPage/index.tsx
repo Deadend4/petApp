@@ -11,6 +11,7 @@ import { useMenuContext } from "src/context/MenuContext";
 import EditIcon from "src/svg/EditIcon";
 import firebase from "src/clients/firebase";
 import { useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 type FormValues = {
   avatar: string;
@@ -19,7 +20,7 @@ type FormValues = {
 };
 export default function AccountPage() {
   SetRouterTitle("Аккаунт");
-  const tempAvatar = useRef<File>();
+  const tempAvatar = useRef<File | null>(null);
   const { setIsMenuShown } = useMenuContext();
   const { user, updateUser } = useAuth();
   const [avatar, setAvatar] = useState(user?.photo);
@@ -30,33 +31,40 @@ export default function AccountPage() {
       bio: user?.bio,
     },
   });
+  let hasChanges = !!tempAvatar.current;
+  let file = '';
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     if (tempAvatar.current) {
       if (user?.photo) {
         try {
           await firebase.storage.deleteFile(user.photo);
         } catch (error) {
-          alert((error as Error).message);
+          toast.error((error as Error).message, {
+            position: "bottom-right",
+          });
         }
       }
       const uploadTask = await firebase.storage.uploadFile(tempAvatar.current, user!.uid);
-      const file = await firebase.storage.getURL(uploadTask);
+     
+      file = await firebase.storage.getURL(uploadTask);
+    }
+    if (hasChanges) {
       updateUser({
         uid: user!.uid,
-        photo: file,
+        photo: file || user?.photo,
         name: data.name,
         bio: data.bio,
       });
+      toast.success("Данные обновлены", {
+        position: "bottom-right",
+      });
+      tempAvatar.current = null;
+      hasChanges = false;
     } else {
-      updateUser({
-        ...user,
-        uid: user!.uid,
-        name: data.name,
-        bio: data.bio,
+      toast.error("Данные не изменены", {
+        position: "bottom-right",
       });
     }
-    
-    
   };
 
   return (
@@ -72,6 +80,9 @@ export default function AccountPage() {
         <div className={styles.description}>
           <h1>Аккаунт</h1>
           <p>На этой странице Вы можете настроить свой профиль.</p>
+        </div>
+        <div>
+        <ToastContainer />
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <div className={styles.accountSettings}>
@@ -117,7 +128,7 @@ export default function AccountPage() {
                 <p>Имя</p>
               </div>
               <div className={styles.setting}>
-                <Input type="text" {...register("name")} />
+                <Input type="text" {...register("name")} onChange={() => hasChanges = true} />
               </div>
             </div>
             <div className={styles.settingContainer}>
@@ -125,7 +136,7 @@ export default function AccountPage() {
                 <p>О себе</p>
               </div>
               <div className={styles.setting}>
-                <textarea rows={5} {...register("bio")} />
+                <textarea rows={5} {...register("bio")} onChange={() => hasChanges = true} />
               </div>
             </div>
             <Button type="submit" isPrimary={true} label="Загрузить" />
