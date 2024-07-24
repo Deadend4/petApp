@@ -13,6 +13,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthWrapper from "./router/AuthWrapper";
 import authReducer from "./context/AuthReducer";
 import firebase from "./clients/firebase";
+import { injectStyle } from "react-toastify/dist/inject-style";
 
 const containter = document.querySelector("#root");
 const root = createRoot(containter!);
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  injectStyle();
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     status: "loading",

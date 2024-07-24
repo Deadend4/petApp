@@ -9,6 +9,9 @@ import useAuth from "src/hooks/useAuth";
 import MobileHeader from "src/components/MobileHeader";
 import { useMenuContext } from "src/context/MenuContext";
 import EditIcon from "src/svg/EditIcon";
+import firebase from "src/clients/firebase";
+import { useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 type FormValues = {
   avatar: string;
@@ -17,8 +20,10 @@ type FormValues = {
 };
 export default function AccountPage() {
   SetRouterTitle("Аккаунт");
+  const tempAvatar = useRef<File | null>(null);
   const { setIsMenuShown } = useMenuContext();
   const { user, updateUser } = useAuth();
+  const [avatar, setAvatar] = useState(user?.photo);
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       avatar: user?.photo,
@@ -26,13 +31,40 @@ export default function AccountPage() {
       bio: user?.bio,
     },
   });
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    updateUser({
-      uid: user!.uid,
-      photo: data.avatar,
-      name: data.name,
-      bio: data.bio,
-    });
+  let hasChanges = !!tempAvatar.current;
+  let file = '';
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    if (tempAvatar.current) {
+      if (user?.photo) {
+        try {
+          await firebase.storage.deleteFile(user.photo);
+        } catch (error) {
+          toast.error((error as Error).message, {
+            position: "bottom-right",
+          });
+        }
+      }
+      const uploadTask = await firebase.storage.uploadFile(tempAvatar.current, user!.uid);
+     
+      file = await firebase.storage.getURL(uploadTask);
+    }
+    if (hasChanges) {
+      updateUser({
+        uid: user!.uid,
+        photo: file || user?.photo,
+        name: data.name,
+        bio: data.bio,
+      });
+      toast.success("Данные обновлены", {
+        position: "bottom-right",
+      });
+      tempAvatar.current = null;
+      hasChanges = false;
+    } else {
+      toast.error("Данные не изменены", {
+        position: "bottom-right",
+      });
+    }
   };
 
   return (
@@ -49,6 +81,9 @@ export default function AccountPage() {
           <h1>Аккаунт</h1>
           <p>На этой странице Вы можете настроить свой профиль.</p>
         </div>
+        <div>
+        <ToastContainer />
+        </div>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <div className={styles.accountSettings}>
             <div className={styles.settingContainer}>
@@ -59,7 +94,7 @@ export default function AccountPage() {
                 <div className={styles.avatarBlock}>
                   <div className={styles.avatar}>
                     <Avatar
-                      src={user?.photo}
+                      src={avatar}
                       alt="Profile avatar"
                       width={100}
                     />
@@ -76,6 +111,14 @@ export default function AccountPage() {
                     className={styles.uploadAvatarButton}
                     id="avatar-uploader"
                     accept="image/png, image/jpeg"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        tempAvatar.current = e.target.files[0];
+                        if (tempAvatar.current) {
+                          setAvatar(URL.createObjectURL(e.target.files[0]));  
+                        }              
+                      }
+                    }}
                   />
                 </div>
               </div>
@@ -85,7 +128,7 @@ export default function AccountPage() {
                 <p>Имя</p>
               </div>
               <div className={styles.setting}>
-                <Input type="text" {...register("name")} />
+                <Input type="text" {...register("name")} onChange={() => hasChanges = true} />
               </div>
             </div>
             <div className={styles.settingContainer}>
@@ -93,7 +136,7 @@ export default function AccountPage() {
                 <p>О себе</p>
               </div>
               <div className={styles.setting}>
-                <textarea rows={5} {...register("bio")} />
+                <textarea rows={5} {...register("bio")} onChange={() => hasChanges = true} />
               </div>
             </div>
             <Button type="submit" isPrimary={true} label="Загрузить" />
