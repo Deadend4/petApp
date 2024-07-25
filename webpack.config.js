@@ -58,7 +58,14 @@ module.exports = {
         },
       },
       {
-        test: /\.(css|scss)$/,
+        test: /^(?!.*?\.module).*\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+        ],
+      },
+      {
+        test: /\.module\.(css|scss)$/,
         use: [
           { loader: "style-loader" },
           { loader: "css-loader", options: { modules: true } },

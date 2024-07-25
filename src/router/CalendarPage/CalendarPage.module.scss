@@ -1,3 +1,4 @@
+
 .calendarPage {
   display: flex;
   flex-flow: row nowrap;
@@ -23,31 +24,6 @@
     font-weight: 500;
     color: var(--grey600);
     margin: 0;
-  }
-}
-.calendar {
-  text-decoration: none;
-  text-align: center;
-  color: var(--grey700);
-  max-width: 45rem;
-  button {
-    cursor: pointer;
-    max-width: calc((100% / 7) - 1rem);
-    aspect-ratio: 1;
-    background-color: var(--color-white);
-    border: 1px solid var(--grey150);
-    padding: 0.625rem;
-    border-radius: 0.625rem;
-    margin: 0.5rem 0.9375rem;
-  }
-  abbr {
-    text-decoration: none;
-  }
-  .react-calendar__tile {
-    color: green;
-  }
-  .react-calendar__navigation__label {
-    color: red;
   }
 }
 
