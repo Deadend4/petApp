@@ -1,9 +1,8 @@
-
 .calendarPage {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
-  margin: 0 1.875rem;
+  justify-content: flex-start;
+  height: 100%;
   @media (max-width: 1280px) {
     flex-direction: column;
     overflow: auto;
@@ -30,13 +29,17 @@
 .calendarSide {
   display: flex;
   flex-flow: column nowrap;
-  padding-right: 1.875rem;
+  padding: 0 1.875rem;
+  width: 100%;
 }
 
 .eventSide {
   display: flex;
   flex-flow: column nowrap;
-  margin: 1.875rem 0;
+  padding: 1.875rem;
+  max-width: 360px;
+  width: 100%;
+  background-color: var(--grey100);
   h2 {
     font-size: 18px;
     font-weight: 600;

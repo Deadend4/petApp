@@ -4,7 +4,7 @@ import { useMenuContext } from "src/context/MenuContext";
 import MobileHeader from "src/components/MobileHeader";
 import { useState } from "react";
 import Calendar from "react-calendar";
-import './Calendar.css';
+import "./Calendar.css";
 
 export default function CalendarPage(): JSX.Element {
   SetRouterTitle("Календарь");
